@@ -16,12 +16,12 @@ export function App(props) {
         <a href="/about">About</a>
       </nav>
     </header>
-    <section>
+    <main>
       <h1>
         ${!params && 'Home'}
         ${page === 'about' && 'About'}
       </h1>
-    </section>
+    </main>
     <br />
     ${page}
   `;

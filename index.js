@@ -23,7 +23,11 @@ const Document = ({ children }) => html`
 const renderAndRespond = ({params}) => {
   let content = `<!DOCTYPE html>\n`;
   content += render(
-    html`<${Document}><${App} params=${params} /><//>`
+    html`<${Document}>
+      <div id="app">
+        <${App} params=${params} />
+      </div>
+    <//>`
   );
   return new Response(content, {
     headers: { 'content-type': 'text/html' },
@@ -32,11 +36,34 @@ const renderAndRespond = ({params}) => {
 
 router.get("/", renderAndRespond);
 router.get("/about", renderAndRespond);
+//router.get("/src/*", async function handleReq(request) {
+  //console.log('handleEvent called with requset',request);
+  //try {
+    //return await getAssetFromKV(event)
+  //} catch (e) {
+    //console.log('caught error:', e);
+    //let pathname = new URL(request.url).pathname
+    //return new Response(`"${pathname}" not found`, {
+      //status: 404,
+      //statusText: "not found",
+    //})
+  //}
+//});
 
 
 // 404 for everything else
 router.all('*', () => new Response('Not Found.', { status: 404 }))
 
 addEventListener('fetch', event => {
-  event.respondWith(router.handle(event.request))
+  //event.respondWith(router.handle(event.request))
+  event.respondWith((async () => {
+    try {
+      return await getAssetFromKV(event)
+    } catch (e) {
+      return router.handle(event.request);
+    }
+  })())
 })
+
+
+
