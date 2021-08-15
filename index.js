@@ -1,18 +1,35 @@
 import render from 'preact-render-to-string';
 import { html } from 'htm/preact';
-import { app } from "./app.js";
+import { Router } from 'itty-router'
+import { App } from "./app.js";
 
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
-/**
- * Respond with hello worker text
- * @param {Request} request
- */
-async function handleRequest(request) {
-  const content = render(app());
-  //const content = render(html`<a href="/">Hello!</a>`);
+const router = Router()
+
+const Document = ({ children }) => html`
+  <html>
+    <body>
+      ${children}
+    </body>
+  </html>
+`;
+
+const renderAndRespond = ({params}) => {
+  let content = `<!DOCTYPE html>\n`;
+  content += render(
+    html`<${Document}><${App} params=${params} /></${Document}>`
+  );
   return new Response(content, {
     headers: { 'content-type': 'text/html' },
   })
-}
+};
+
+router.get("/", renderAndRespond);
+router.get("/:page", renderAndRespond);
+
+
+// 404 for everything else
+router.all('*', () => new Response('Not Found.', { status: 404 }))
+
+addEventListener('fetch', event => {
+  event.respondWith(router.handle(event.request))
+})

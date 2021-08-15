@@ -11,10 +11,11 @@
   "author": "Matt Garrett <mattga@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "1.19.1"
   },
   "dependencies": {
     "htm": "^3.1.0",
+    "itty-router": "^2.4.2",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19"
   }
