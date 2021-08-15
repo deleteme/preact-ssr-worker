@@ -10,6 +10,7 @@ const Document = ({ children }) => html`
   <html>
     <head>
       <title>SSR Preact on Cloudflare Workers</title>
+      <link rel="icon" type="image/png" href="/favicon.png" />
     </head>
     <body>
       ${children}

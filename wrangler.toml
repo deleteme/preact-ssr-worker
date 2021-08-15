@@ -5,3 +5,7 @@ account_id = "33c9d6250b2ef4a5d81b9ba11249eda3"
 workers_dev = true
 route = ""
 zone_id = ""
+
+[site]
+bucket = "./public" # Add the directory with your static assets!
+entry-point = "./src" # JS folder serving your assets
