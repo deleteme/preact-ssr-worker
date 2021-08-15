@@ -1,6 +1,7 @@
 import render from 'preact-render-to-string';
 import { html } from 'htm/preact';
 import { Router } from 'itty-router'
+import { getAssetFromKV } from "@cloudflare/kv-asset-handler"
 
 import { App } from "./src/app.js";
 
@@ -30,7 +31,7 @@ const renderAndRespond = ({params}) => {
 };
 
 router.get("/", renderAndRespond);
-router.get("/:page", renderAndRespond);
+router.get("/about", renderAndRespond);
 
 
 // 404 for everything else
