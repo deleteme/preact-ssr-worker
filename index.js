@@ -1,7 +1,8 @@
 import render from 'preact-render-to-string';
 import { html } from 'htm/preact';
 import { Router } from 'itty-router'
-import { App } from "./app.js";
+
+import { App } from "./src/app.js";
 
 const router = Router()
 
@@ -12,6 +13,7 @@ const Document = ({ children }) => html`
     </head>
     <body>
       ${children}
+      <script src="/src/app.js" type="module"></script>
     </body>
   </html>
 `;
