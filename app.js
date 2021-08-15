@@ -5,6 +5,7 @@ console.log('app.js, imported html', html);
 export function App(props) {
   console.log('App() called with props', JSON.stringify(props));
   const { params } = props;
+  const page = params && params.page;
   return html`
     <header>
       <h1>
@@ -12,10 +13,16 @@ export function App(props) {
       </h1>
       <nav>
         <a href="/">Home</a>
-        <a href="/page">Page</a>
+        <a href="/about">About</a>
       </nav>
     </header>
+    <section>
+      <h1>
+        ${!params && 'Home'}
+        ${page === 'about' && 'About'}
+      </h1>
+    </section>
     <br />
-    ${params && params.page}
+    ${page}
   `;
 }

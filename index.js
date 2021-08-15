@@ -7,6 +7,9 @@ const router = Router()
 
 const Document = ({ children }) => html`
   <html>
+    <head>
+      <title>SSR Preact on Cloudflare Workers</title>
+    </head>
     <body>
       ${children}
     </body>
@@ -16,7 +19,7 @@ const Document = ({ children }) => html`
 const renderAndRespond = ({params}) => {
   let content = `<!DOCTYPE html>\n`;
   content += render(
-    html`<${Document}><${App} params=${params} /></${Document}>`
+    html`<${Document}><${App} params=${params} /><//>`
   );
   return new Response(content, {
     headers: { 'content-type': 'text/html' },
