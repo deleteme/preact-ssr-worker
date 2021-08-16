@@ -1,9 +1,12 @@
+import { useState } from "preact/hooks";
+console.log('imported useState', useState);
 import { html } from "./html.js";
 
 export function App(props = {}) {
-  console.log('App() called with props', JSON.stringify(props));
+  //console.log('App() called with props', JSON.stringify(props));
+  const [value, setValue] = useState(0);
   const { params } = props;
-  console.log('params', params);
+  //console.log('params', params);
   const page = params && params.page;
   return html`
     <header>
@@ -22,6 +25,10 @@ export function App(props = {}) {
       </h1>
       ${page}
     </main>
-    <footer>foot</footer>
+    <footer>
+      foot
+      <br />
+      ${value}
+    </footer>
   `;
 }

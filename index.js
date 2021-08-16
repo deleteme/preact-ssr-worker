@@ -18,8 +18,9 @@ const doc = ({ children, params = {} }) => {
         <script type="importmap">
           {
             "imports": {
-              "htm": "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module",
-              "preact": "https://unpkg.com/preact@10.5.14/dist/preact.module.js?module"
+              "htm": "https://cdn.jsdelivr.net/npm/htm@3.1.0/dist/htm.module.js",
+              "preact": "https://cdn.jsdelivr.net/npm/preact@10.5.14/dist/preact.module.js",
+              "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.5.14/hooks/dist/hooks.module.js"
             }
           }
         </script>
@@ -93,8 +94,11 @@ addEventListener('fetch', event => {
           console.log('no asset.');
         }
       }
-      console.log('404, for reals.');
-      return new Response('Not Found.', { status: 404 })
+      console.log('404, for reals. e:', e);
+      return new Response(`Not Found.
+        \n\n
+        ${e}
+        `, { status: 404 })
     }
   })())
 })
