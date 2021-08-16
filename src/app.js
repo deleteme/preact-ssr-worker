@@ -1,5 +1,4 @@
 import { useState } from "preact/hooks";
-console.log('imported useState', useState);
 import { html } from "./html.js";
 
 export function App(props = {}) {
