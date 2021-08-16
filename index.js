@@ -12,10 +12,21 @@ const Document = ({ children }) => html`
     <head>
       <title>SSR Preact on Cloudflare Workers</title>
       <link rel="icon" type="image/png" href="/favicon.png" />
+      <script async src="https://unpkg.com/es-module-shims@0.12.2/dist/es-module-shims.js"></script>
+      <!--
+            "app": "./src/app.js"
+      -->
+      <script type="importmap">
+        {
+          "imports": {
+            "htm/preact": "https://unpkg.com/htm@3.1.0/preact/standalone.module.js"
+          }
+        }
+      </script>
+      <script src="/app.js" type="module"></script>
     </head>
     <body>
       ${children}
-      <script src="/src/app.js" type="module"></script>
     </body>
   </html>
 `;
@@ -53,21 +64,32 @@ router.get("/about", renderAndRespond);
 
 // 404 for everything else
 router.all('*', () => {
-  console.log('fallback 404 in router hit');
-  return new Response('Not Found.', { status: 404 })
+  throw 'no route';
+  //console.log('fallback 404 in router hit');
+  //return new Response('Not Found.', { status: 404 })
 });
 
 
 addEventListener('fetch', event => {
   //event.respondWith(router.handle(event.request))
+  console.log('\n\nevent.request.url =>', event.request.url);
   event.respondWith((async () => {
     try {
-      const asset = await getAssetFromKV(event)
-      console.log('asset', asset);
-      return asset;
+      const routedResponse = await router.handle(event.request);
+      console.log('routedResponse', routedResponse);
+      return routedResponse;
     } catch (e) {
-      console.log('caught error, sending to router', e);
-      return router.handle(event.request);
+      if (e === 'no route') {
+        try {
+          const asset = await getAssetFromKV(event)
+          console.log('asset', asset);
+          return asset;
+        } catch (e) {
+          console.log('no asset.');
+        }
+      }
+      console.log('404, for reals.');
+      return new Response('Not Found.', { status: 404 })
     }
   })())
 })
