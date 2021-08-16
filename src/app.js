@@ -29,6 +29,9 @@ export function App(props = {}) {
       foot
       <br />
       ${value}
+      <button type="button" onClick=${() => setValue(value === 0 ? 1 : 0)}>
+        toggle
+      </button>
     </footer>
   `;
 }
