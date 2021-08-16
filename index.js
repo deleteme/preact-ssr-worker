@@ -52,14 +52,21 @@ router.get("/about", renderAndRespond);
 
 
 // 404 for everything else
-router.all('*', () => new Response('Not Found.', { status: 404 }))
+router.all('*', () => {
+  console.log('fallback 404 in router hit');
+  return new Response('Not Found.', { status: 404 })
+});
+
 
 addEventListener('fetch', event => {
   //event.respondWith(router.handle(event.request))
   event.respondWith((async () => {
     try {
-      return await getAssetFromKV(event)
+      const asset = await getAssetFromKV(event)
+      console.log('asset', asset);
+      return asset;
     } catch (e) {
+      console.log('caught error, sending to router', e);
       return router.handle(event.request);
     }
   })())
