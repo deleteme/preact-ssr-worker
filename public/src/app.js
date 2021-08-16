@@ -1,10 +1,9 @@
-import { html } from "htm/preact";
+import { html } from "./html.js";
 
-console.log('app.js, imported html', html);
-
-export function App(props) {
+export function App(props = {}) {
   console.log('App() called with props', JSON.stringify(props));
   const { params } = props;
+  console.log('params', params);
   const page = params && params.page;
   return html`
     <header>
@@ -13,7 +12,7 @@ export function App(props) {
       </h1>
       <nav>
         <a href="/">Home</a>
-        <a href="/about">About</a>
+        <a href="/pages/about">About</a>
       </nav>
     </header>
     <main>
@@ -21,8 +20,8 @@ export function App(props) {
         ${!params && 'Home'}
         ${page === 'about' && 'About'}
       </h1>
+      ${page}
     </main>
-    <br />
-    ${page}
+    <footer>foot</footer>
   `;
 }

@@ -7,7 +7,7 @@ import { html } from "./src/html.js";
 
 const router = Router()
 
-const doc = ({ children, params }) => {
+const doc = ({ children, params = {} }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -15,22 +15,19 @@ const doc = ({ children, params }) => {
         <title>SSR Preact on Cloudflare Workers</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <script async src="https://unpkg.com/es-module-shims@0.12.2/dist/es-module-shims.js"></script>
-        <!--
-          "app": "./src/app.js"
-        -->
         <script type="importmap">
           {
             "imports": {
               "htm": "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module",
-              "preact": "https://unpkg.com/preact@10.5.14/dist/preact.min.js"
+              "preact": "https://unpkg.com/preact@10.5.14/dist/preact.module.js?module"
             }
           }
         </script>
         <script type="module">
-          import { hydrate } from 'preact';
-          import { App } from "./src/app.js";
-          const props = { params: JSON.parse(${JSON.stringify(params)}) };
-          hydrate(App(props), document.getElementById('container'));
+          import { h, hydrate } from 'preact';
+          import { App } from "/src/app.js";
+          const props = { params: JSON.parse('${(JSON.stringify(params))}') };
+          hydrate(h(App, props), document.getElementById('app'));
         </script>
       </head>
       <body>
@@ -40,7 +37,7 @@ const doc = ({ children, params }) => {
   `
 };
 
-const renderAndRespond = ({params}) => {
+const renderAndRespond = ({params = {}}) => {
   let content = doc({ params, children: render(
     html`
       <div id="app">
@@ -54,7 +51,7 @@ const renderAndRespond = ({params}) => {
 };
 
 router.get("/", renderAndRespond);
-router.get("/about", renderAndRespond);
+router.get("/pages/:page", renderAndRespond);
 //router.get("/src/*", async function handleReq(request) {
   //console.log('handleEvent called with requset',request);
   //try {
