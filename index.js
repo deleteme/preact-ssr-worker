@@ -14,7 +14,7 @@ const doc = ({ children, params = {} }) => {
       <head>
         <title>SSR Preact on Cloudflare Workers</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <script async src="https://unpkg.com/es-module-shims@0.12.2/dist/es-module-shims.js"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@0.12.2/dist/es-module-shims.min.js"></script>
         <script type="importmap">
           {
             "imports": {
