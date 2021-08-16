@@ -7,39 +7,44 @@ import { App } from "./src/app.js";
 
 const router = Router()
 
-const Document = ({ children }) => html`
-  <html>
-    <head>
-      <title>SSR Preact on Cloudflare Workers</title>
-      <link rel="icon" type="image/png" href="/favicon.png" />
-      <script async src="https://unpkg.com/es-module-shims@0.12.2/dist/es-module-shims.js"></script>
-      <!--
-            "app": "./src/app.js"
-      -->
-      <script type="importmap">
-        {
-          "imports": {
-            "htm/preact": "https://unpkg.com/htm@3.1.0/preact/standalone.module.js"
-          }
-        }
-      </script>
-      <script src="/app.js" type="module"></script>
-    </head>
-    <body>
-      ${children}
-    </body>
-  </html>
-`;
+const doc = ({ children }) => {
+  const importmap = `
+    {
+      "imports": {
+        "htm/preact": "https://unpkg.com/htm@3.1.0/preact/standalone.module.js"
+      }
+    }
+  `;
+  return `
+    <html>
+      <head>
+        <title>SSR Preact on Cloudflare Workers</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <script async src="https://unpkg.com/es-module-shims@0.12.2/dist/es-module-shims.js"></script>
+        <!--
+              "app": "./src/app.js"
+        -->
+        <script type="importmap">
+          ${importmap}
+        </script>
+        <script src="/src/app.js" type="module"></script>
+      </head>
+      <body>
+        ${children}
+      </body>
+    </html>
+  `
+};
 
 const renderAndRespond = ({params}) => {
   let content = `<!DOCTYPE html>\n`;
-  content += render(
-    html`<${Document}>
+  content += doc({ children: render(
+    html`
       <div id="app">
         <${App} params=${params} />
       </div>
-    <//>`
-  );
+    `
+  ) });
   return new Response(content, {
     headers: { 'content-type': 'text/html' },
   })
