@@ -26,6 +26,9 @@ const doc = ({ children, params = {} }) => {
         </script>
         <script type="module">
           import { h, hydrate } from 'preact';
+          import "htm"; // preload
+          import "preact/hooks"; // preload
+
           import { App } from "/src/app.js";
           const props = { params: JSON.parse('${(JSON.stringify(params))}') };
           hydrate(h(App, props), document.getElementById('app'));
