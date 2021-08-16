@@ -1,8 +1,8 @@
-import { html } from "htm/preact";
+import { html } from "./html.js";
 
 console.log('app.js, imported html', html);
 
-export function App(props) {
+export function App(props = {}) {
   console.log('App() called with props', JSON.stringify(props));
   const { params } = props;
   const page = params && params.page;

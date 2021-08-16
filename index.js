@@ -1,13 +1,13 @@
 import render from 'preact-render-to-string';
-import { html } from 'htm/preact';
 import { Router } from 'itty-router'
 import { getAssetFromKV } from "@cloudflare/kv-asset-handler"
 
 import { App } from "./src/app.js";
+import { html } from "./src/html.js";
 
 const router = Router()
 
-const doc = ({ children }) => {
+const doc = ({ children, params }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -21,12 +21,16 @@ const doc = ({ children }) => {
         <script type="importmap">
           {
             "imports": {
-              "htm/preact": "https://unpkg.com/htm@3.1.0/preact/standalone.module.js"
+              "htm": "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module",
+              "preact": "https://unpkg.com/preact@10.5.14/dist/preact.min.js"
             }
           }
         </script>
         <script type="module">
+          import { hydrate } from 'preact';
           import { App } from "./src/app.js";
+          const props = { params: JSON.parse(${JSON.stringify(params)}) };
+          hydrate(App(props), document.getElementById('container'));
         </script>
       </head>
       <body>
@@ -37,7 +41,7 @@ const doc = ({ children }) => {
 };
 
 const renderAndRespond = ({params}) => {
-  let content = doc({ children: render(
+  let content = doc({ params, children: render(
     html`
       <div id="app">
         <${App} params=${params} />
