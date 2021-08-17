@@ -1,16 +1,19 @@
 import { useState } from 'preact/hooks'
-console.log('imported useState', useState)
 import { html } from './html.js'
 
 export function App(props = {}) {
-  //console.log('App() called with props', JSON.stringify(props));
+  console.log('App() called with props', JSON.stringify(props))
   const [value, setValue] = useState(0)
-  const { params } = props
+  const { params, queryResult } = props
   //console.log('params', params);
   const page = params && params.page
+  const organization = queryResult.data.organization
   return html`
     <header>
-      <h1>app, <em>in html!</em></h1>
+      <h1>
+        app, <em>in html!</em>
+        ${organization.name}
+      </h1>
       <nav>
         <a href="/">Home</a>
         <a href="/pages/about">About</a>
