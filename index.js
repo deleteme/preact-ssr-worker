@@ -4,7 +4,7 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 import { App } from './src/app.js'
 import { html } from './src/html.js'
-import { query } from './query.js'
+import { query  } from "./query.js";
 
 const router = Router()
 
@@ -14,6 +14,7 @@ const doc = ({ children, appProps }) => {
     <html>
       <head>
         <title>SSR Preact on Cloudflare Workers</title>
+        <meta name="robots" content="noindex" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@0.12.2/dist/es-module-shims.min.js"></script>
         <script type="importmap">
@@ -46,14 +47,17 @@ const doc = ({ children, appProps }) => {
 }
 
 const renderAndRespond = async ({ params = {} }) => {
-  const queryResponse = await query()
-  console.log('queryResponse', queryResponse)
-  console.log('queryResponse.status', queryResponse.status)
-  const queryResponseJson = await queryResponse.json()
-  console.log('queryResponseJson', JSON.stringify(queryResponseJson))
+  const queryStart = Date.now();
+  const queryResponse = await query();
+  const queryEnd = Date.now();
+  console.log(`query request completed in ${queryEnd - queryStart}ms`);
+  console.log('queryResponse', queryResponse);
+  console.log('queryResponse.status', queryResponse.status);
+  const queryResponseJson = await queryResponse.json();
+  console.log('queryResponseJson', JSON.stringify(queryResponseJson));
   //const queryResponseText = await queryResponse.text();
   //console.log('queryResponseText', queryResponseText);
-  const appProps = { params, queryResult: queryResponseJson }
+  const appProps = { params, queryResult: queryResponseJson };
   let content = doc({
     appProps,
     children: render(
