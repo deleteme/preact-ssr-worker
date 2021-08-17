@@ -1,5 +1,6 @@
 import { useState } from 'preact/hooks'
 import { html } from './html.js'
+import { Subscriptions } from "./subscriptions.js";
 
 export function App(props = {}) {
   console.log('App() called with props', JSON.stringify(props))
@@ -17,13 +18,18 @@ export function App(props = {}) {
       <nav>
         <a href="/">Home</a>
         <a href="/pages/about">About</a>
+        <a href="/pages/subscriptions">Subscriptions</a>
       </nav>
     </header>
     <main>
       <h1>
-        ${!params && 'Home'} ${page === 'about' && 'About'}
+        ${!params && 'Home'}
+        ${page === 'about' && 'About'}
+        ${page === 'subscriptions' && 'Subscriptions'}
       </h1>
-      ${page}
+      ${page === 'subscriptions' && Subscriptions({
+        queryResult
+      })}
     </main>
     <footer>
       foot

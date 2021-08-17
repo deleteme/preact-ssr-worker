@@ -4,7 +4,7 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 import { App } from './src/app.js'
 import { html } from './src/html.js'
-import { query  } from "./query.js";
+import { query } from './query.js'
 
 const router = Router()
 
@@ -47,17 +47,17 @@ const doc = ({ children, appProps }) => {
 }
 
 const renderAndRespond = async ({ params = {} }) => {
-  const queryStart = Date.now();
-  const queryResponse = await query();
-  const queryEnd = Date.now();
-  console.log(`query request completed in ${queryEnd - queryStart}ms`);
-  console.log('queryResponse', queryResponse);
-  console.log('queryResponse.status', queryResponse.status);
-  const queryResponseJson = await queryResponse.json();
-  console.log('queryResponseJson', JSON.stringify(queryResponseJson));
+  const queryStart = Date.now()
+  const queryResponse = await query()
+  const queryEnd = Date.now()
+  console.log(`query request completed in ${queryEnd - queryStart}ms`)
+  console.log('queryResponse', queryResponse)
+  console.log('queryResponse.status', queryResponse.status)
+  const queryResponseJson = await queryResponse.json()
+  console.log('queryResponseJson', JSON.stringify(queryResponseJson))
   //const queryResponseText = await queryResponse.text();
   //console.log('queryResponseText', queryResponseText);
-  const appProps = { params, queryResult: queryResponseJson };
+  const appProps = { params, queryResult: queryResponseJson }
   let content = doc({
     appProps,
     children: render(
