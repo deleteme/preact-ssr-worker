@@ -1,18 +1,16 @@
-import { useState } from "preact/hooks";
-console.log('imported useState', useState);
-import { html } from "./html.js";
+import { useState } from 'preact/hooks'
+console.log('imported useState', useState)
+import { html } from './html.js'
 
 export function App(props = {}) {
   //console.log('App() called with props', JSON.stringify(props));
-  const [value, setValue] = useState(0);
-  const { params } = props;
+  const [value, setValue] = useState(0)
+  const { params } = props
   //console.log('params', params);
-  const page = params && params.page;
+  const page = params && params.page
   return html`
     <header>
-      <h1>
-        app, <em>in html!</em>
-      </h1>
+      <h1>app, <em>in html!</em></h1>
       <nav>
         <a href="/">Home</a>
         <a href="/pages/about">About</a>
@@ -20,8 +18,7 @@ export function App(props = {}) {
     </header>
     <main>
       <h1>
-        ${!params && 'Home'}
-        ${page === 'about' && 'About'}
+        ${!params && 'Home'} ${page === 'about' && 'About'}
       </h1>
       ${page}
     </main>
@@ -33,5 +30,5 @@ export function App(props = {}) {
         toggle
       </button>
     </footer>
-  `;
+  `
 }

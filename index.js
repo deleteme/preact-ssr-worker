@@ -4,10 +4,11 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 import { App } from './src/app.js'
 import { html } from './src/html.js'
+import { query } from './query.js'
 
 const router = Router()
 
-const doc = ({ children, params = {} }) => {
+const doc = ({ children, appProps }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -31,7 +32,9 @@ const doc = ({ children, params = {} }) => {
           import "/src/html.js"; // preload
 
           import { App } from "/src/app.js";
-          const props = { params: JSON.parse('${JSON.stringify(params)}') };
+          const appPropsJson = \`${JSON.stringify(appProps)}\`;
+          const props = JSON.parse(appPropsJson);
+          console.log('Bootstrapped App with props:', props);
           hydrate(h(App, props), document.getElementById('app'));
         </script>
       </head>
@@ -42,13 +45,21 @@ const doc = ({ children, params = {} }) => {
   `
 }
 
-const renderAndRespond = ({ params = {} }) => {
+const renderAndRespond = async ({ params = {} }) => {
+  const queryResponse = await query()
+  console.log('queryResponse', queryResponse)
+  console.log('queryResponse.status', queryResponse.status)
+  const queryResponseJson = await queryResponse.json()
+  console.log('queryResponseJson', JSON.stringify(queryResponseJson))
+  //const queryResponseText = await queryResponse.text();
+  //console.log('queryResponseText', queryResponseText);
+  const appProps = { params, queryResult: queryResponseJson }
   let content = doc({
-    params,
+    appProps,
     children: render(
       html`
         <div id="app">
-          <${App} params=${params} />
+          <${App} ...${appProps} />
         </div>
       `,
     ),
