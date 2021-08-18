@@ -1,3 +1,41 @@
+import { createContext } from 'preact';
+import { useContext, useEffect } from 'preact/hooks';
+
+//class PendingQuery {
+  //constructor(graphQLString, options) {
+    //this.graphQLString = graphQLString;
+    //this.options = options;
+    //this.status = 'pending';
+  //}
+//}
+
+//class QueryClient {
+  //constructor() {
+    //this._queries = new Map();
+  //}
+  //addQuery(graphQLString, options) {
+    //const pendingQuery = new PendingQuery(graphQLString, options);
+    //this._queries.set(graphQLString, options);
+  //}
+  //removeQuery(graphQLString) {
+    //this._queries.delete(graphQLString, options);
+  //}
+  //getQueries() {
+    //return this._queries;
+  //}
+//}
+
+//const QueryContext = createContext(new QueryClient());
+
+//const useQuery = (graphQLString, options) => {
+  //const client = useContext(QueryContext);
+  //const initialEntry = [graphQLString, options];
+  //const ref = useRef(initialEntry);
+  //useEffect(() => {
+    //console.log('useEffect hook called');
+  //}, [client, graphQLString, options]);
+//};
+
 const gql = (strings, ...args) => {
   let rendered = ''
   let i = 0

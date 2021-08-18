@@ -5,6 +5,7 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 import { App } from './src/app.js'
 import { html } from './src/html.js'
 import { query } from './query.js'
+import { collection } from './src/experiment-with-context.js'
 
 const router = Router()
 
@@ -47,28 +48,36 @@ const doc = ({ children, appProps }) => {
 }
 
 const renderAndRespond = async ({ params = {} }) => {
+
   const queryStart = Date.now()
   const queryResponse = await query()
   const queryEnd = Date.now()
   console.log(`query request completed in ${queryEnd - queryStart}ms`)
-  console.log('queryResponse', queryResponse)
+  //console.log('queryResponse', queryResponse)
   console.log('queryResponse.status', queryResponse.status)
   const queryResponseJson = await queryResponse.json()
   console.log('queryResponseJson', JSON.stringify(queryResponseJson))
-  //const queryResponseText = await queryResponse.text();
-  //console.log('queryResponseText', queryResponseText);
+
   const appProps = { params, queryResult: queryResponseJson }
-  let content = doc({
+
+  const renderedApp = render(
+    html`
+      <div id="app">
+        <${App} ...${appProps} />
+      </div>
+    `,
+  )
+  console.log('context collection:', collection)
+
+  collection.process(item => {
+    console.log('processing item', JSON.stringify(item));
+  });
+
+  const body = doc({
     appProps,
-    children: render(
-      html`
-        <div id="app">
-          <${App} ...${appProps} />
-        </div>
-      `,
-    ),
+    children: renderedApp,
   })
-  return new Response(content, {
+  return new Response(body, {
     headers: { 'content-type': 'text/html' },
   })
 }

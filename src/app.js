@@ -1,14 +1,16 @@
-import { useState } from 'preact/hooks'
+import { useState, useEffect, useRef } from 'preact/hooks'
 import { html } from './html.js'
 import { Subscriptions } from "./subscriptions.js";
+import { useQuery, CollectionContext } from "./experiment-with-context.js";
 
-export function App(props = {}) {
-  console.log('App() called with props', JSON.stringify(props))
+const Layout = (props) => {
   const [value, setValue] = useState(0)
   const { params, queryResult } = props
   //console.log('params', params);
   const page = params && params.page
   const organization = queryResult.data.organization
+  const q1 = useQuery(`query one{}`, { name: 'options' });
+  console.log('q1', JSON.stringify(q1));
   return html`
     <header>
       <h1>
@@ -39,5 +41,20 @@ export function App(props = {}) {
         toggle
       </button>
     </footer>
+  `;
+};
+
+export function App(props = {}) {
+  console.log('App() called with props', JSON.stringify(props))
+  //useEffect(() => {
+    //console.log('useEffect hook called in <App>, setting state');
+    //setValue(2);
+  //}, [setValue]);
+  //const ref = useRef('worked!');
+  //console.log('ref:', ref);
+  return html`
+    <${CollectionContext.Provider}>
+      <${Layout} ...${props}><//>
+    <//>
   `
 }
