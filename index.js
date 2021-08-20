@@ -1,4 +1,5 @@
 import render from 'preact-render-to-string'
+import { h } from "preact";
 import { Router } from 'itty-router'
 import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
@@ -41,7 +42,9 @@ const doc = ({ children, appProps }) => {
         </script>
       </head>
       <body>
-        ${children}
+        <div id="app">
+          ${children}
+        </div>
       </body>
     </html>
   `
@@ -58,16 +61,15 @@ const renderAndRespond = async ({ params = {} }) => {
   const queryResponseJson = await queryResponse.json()
   console.log('queryResponseJson', JSON.stringify(queryResponseJson))
 
-  const appProps = { params, queryResult: queryResponseJson }
+  const appProps = { params,
+    queryResult: queryResponseJson,
+    collection };
 
   const renderedApp = render(
-    html`
-      <div id="app">
-        <${App} ...${appProps} />
-      </div>
-    `,
-  )
-  console.log('context collection:', collection)
+    h(App, appProps),
+    {},
+    { pretty: true }
+  );
 
   collection.process(item => {
     console.log('processing item', JSON.stringify(item));

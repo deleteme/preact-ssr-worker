@@ -20,7 +20,6 @@ class Collection {
   }
   async process(callback) {
     for (const item of this.state) {
-      console.log('process', JSON.stringify(item));
       await callback(item);
     }
     this.state.clear();
@@ -32,8 +31,7 @@ export const collection = new Collection();
 export const CollectionContext = createContext(collection);
 
 export const useQuery = (ql, options) => {
-  //const collection = useContext(CollectionContext);
-  console.log('useQuery collection', collection);
+  const collection = useContext(CollectionContext);
   const idRef = useRef(collection.getNextId());
   const id = idRef.current;
   const queryRef = useRef(collection.register(id, [ql, options]));

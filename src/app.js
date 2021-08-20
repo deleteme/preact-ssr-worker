@@ -45,15 +45,10 @@ const Layout = (props) => {
 };
 
 export function App(props = {}) {
-  console.log('App() called with props', JSON.stringify(props))
-  //useEffect(() => {
-    //console.log('useEffect hook called in <App>, setting state');
-    //setValue(2);
-  //}, [setValue]);
-  //const ref = useRef('worked!');
-  //console.log('ref:', ref);
+  console.log('\nApp() called with props', JSON.stringify(props))
+  const { collection } = props;
   return html`
-    <${CollectionContext.Provider}>
+    <${CollectionContext.Provider} value=${collection}>
       <${Layout} ...${props}><//>
     <//>
   `
