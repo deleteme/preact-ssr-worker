@@ -1,6 +1,6 @@
 import { createContext } from 'preact'
 import { useContext, useEffect, useRef, useReducer } from 'preact/hooks'
-import { fetchQuery, gql } from '../query.js'
+import { fetchQuery, gql } from './query.js'
 
 export { gql }
 
