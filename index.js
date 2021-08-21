@@ -5,7 +5,6 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 import { App } from './src/app.js'
 import { html } from './src/html.js'
-import { query } from './query.js'
 import { collection } from './src/experiment-with-context.js'
 
 const router = Router()
