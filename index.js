@@ -1,5 +1,5 @@
 import render from 'preact-render-to-string'
-import { h } from "preact";
+import { h } from 'preact'
 import { Router } from 'itty-router'
 import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
@@ -51,33 +51,30 @@ const doc = ({ children, appProps }) => {
 }
 
 const renderAndRespond = async ({ params = {} }) => {
-
-  const queryStart = Date.now()
-  const queryResponse = await query()
-  const queryEnd = Date.now()
-  console.log(`query request completed in ${queryEnd - queryStart}ms`)
+  //const queryStart = Date.now()
+  //const queryResponse = await query()
+  //const queryEnd = Date.now()
+  //console.log(`query request completed in ${queryEnd - queryStart}ms`)
   //console.log('queryResponse', queryResponse)
-  console.log('queryResponse.status', queryResponse.status)
-  const queryResponseJson = await queryResponse.json()
-  console.log('queryResponseJson', JSON.stringify(queryResponseJson))
+  //console.log('queryResponse.status', queryResponse.status)
+  //const queryResponseJson = await queryResponse.json()
+  //console.log('queryResponseJson', JSON.stringify(queryResponseJson))
 
-  const appProps = { params,
-    queryResult: queryResponseJson,
-    collection };
+  const appProps = { params, collection }
 
-  const renderedApp = render(
-    h(App, appProps),
-    {},
-    { pretty: true }
-  );
+  console.log('1st render call to detect queries')
+  const renderedApp = render(h(App, appProps), {}, { pretty: true })
+  console.log('1st render completed. processing queries')
 
-  collection.process(item => {
-    console.log('processing item', JSON.stringify(item));
-  });
+  await collection.process()
+
+  console.log('2nd render call, this time with data')
+  const renderedAppWithData = render(h(App, appProps), {}, { pretty: true })
+  console.log('2nd render completed. sending to document.')
 
   const body = doc({
     appProps,
-    children: renderedApp,
+    children: renderedAppWithData,
   })
   return new Response(body, {
     headers: { 'content-type': 'text/html' },
