@@ -62,19 +62,28 @@ const renderAndRespond = async ({ params = {} }) => {
 
   const appProps = { params, collection }
 
-  console.log('1st render call to detect queries')
-  const renderedApp = render(h(App, appProps), {}, { pretty: true })
-  console.log('1st render completed. processing queries')
+  let renderCount = 0
+  let renderedApp = ''
 
-  await collection.process()
+  const doRender = () => {
+    renderCount += 1
+    console.log('\n'.repeat(4))
+    console.log('RENDER', renderCount, 'started')
+    renderedApp = render(h(App, appProps), {}, { pretty: true })
+    console.log('RENDER', renderCount, 'completed')
+  }
+  doRender()
 
-  console.log('2nd render call, this time with data')
-  const renderedAppWithData = render(h(App, appProps), {}, { pretty: true })
-  console.log('2nd render completed. sending to document.')
+  while (collection.pending.size > 0) {
+    await collection.process()
+    doRender()
+  }
+
+  console.log(`render completed in ${renderCount} passes.`)
 
   const body = doc({
     appProps,
-    children: renderedAppWithData,
+    children: renderedApp,
   })
   return new Response(body, {
     headers: { 'content-type': 'text/html' },

@@ -49,7 +49,6 @@ class Collection {
       id,
       JSON.stringify(item),
     )
-    console.log('added idRef to set', this.ids)
     if (this.processed.has(id)) {
       console.log(
         'collection register called with an idRef it already has processed. return previous query.',
@@ -57,6 +56,7 @@ class Collection {
       return this.processed.get(id)
     } else {
       this.ids.push(id)
+      console.log('added idRef to set', this.ids)
       this.pending.set(id, item)
       return item
     }
@@ -100,7 +100,7 @@ class Query {
   constructor(query, options = {}) {
     this.status = PENDING
     this.response = null
-    this.responseJSON = null
+    this.data = null
     this.error = null
 
     this.query = query
@@ -116,8 +116,8 @@ class Query {
       })
       console.log('this.response.status', this.response.status)
       try {
-        this.responseJSON = await this.response.json()
-        console.log('setting responseJSON', JSON.stringify(this.responseJSON))
+        const responseJSON = await this.response.json()
+        this.data = responseJSON.data;
       } catch (error) {
         console.log('error parsing json', error.message)
       }
@@ -172,7 +172,7 @@ export const useQuery = (gql, options) => {
     loading: query.status === LOADING,
     status: query.status,
     error: query.error,
-    data: query.responseJSON ? query.responseJSON.data : null,
+    data: query.data
   }
   const [result, dispatch] = useReducer(queryReducer, initialState)
 
@@ -184,8 +184,8 @@ export const useQuery = (gql, options) => {
       ;(async () => {
         try {
           dispatch({ type: 'LOAD' })
-          const response = await query.call()
-          dispatch({ type: 'RESOLVE', data: response.responseJSON.data })
+          const result = await query.call()
+          dispatch({ type: 'RESOLVE', data: result.data })
         } catch (error) {
           console.error(error)
           dispatch({ type: 'REJECT', error })
