@@ -50,15 +50,6 @@ const doc = ({ children, appProps }) => {
 }
 
 const renderAndRespond = async ({ params = {} }) => {
-  //const queryStart = Date.now()
-  //const queryResponse = await query()
-  //const queryEnd = Date.now()
-  //console.log(`query request completed in ${queryEnd - queryStart}ms`)
-  //console.log('queryResponse', queryResponse)
-  //console.log('queryResponse.status', queryResponse.status)
-  //const queryResponseJson = await queryResponse.json()
-  //console.log('queryResponseJson', JSON.stringify(queryResponseJson))
-
   const appProps = { params, collection }
 
   let renderCount = 0
@@ -91,19 +82,6 @@ const renderAndRespond = async ({ params = {} }) => {
 
 router.get('/', renderAndRespond)
 router.get('/pages/:page', renderAndRespond)
-//router.get("/src/*", async function handleReq(request) {
-//console.log('handleEvent called with requset',request);
-//try {
-//return await getAssetFromKV(event)
-//} catch (e) {
-//console.log('caught error:', e);
-//let pathname = new URL(request.url).pathname
-//return new Response(`"${pathname}" not found`, {
-//status: 404,
-//statusText: "not found",
-//})
-//}
-//});
 
 // 404 for everything else
 router.all('*', () => {
@@ -113,7 +91,6 @@ router.all('*', () => {
 })
 
 addEventListener('fetch', event => {
-  //event.respondWith(router.handle(event.request))
   console.log('\n\nevent.request.url =>', event.request.url)
   event.respondWith(
     (async () => {

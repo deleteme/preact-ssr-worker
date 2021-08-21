@@ -17,31 +17,6 @@ class Collection {
     if (idRef.current === null) {
       console.log('idRef.current is null. assigning an id')
       idRef.current = this.getNextId()
-      /*
-      const isFresh = this.processed.size === 0;
-      // 1st pass. starting from scratch. make new ids.
-      if (isFresh) {
-        idRef.current = this.getNextId();
-      } else {
-        // has processed queries
-
-        either the id is a processed id
-          and needs to be restored
-          idRef.current = 0
-        or it's a new one
-          idRef.current = this.getNextId();
-
-
-        //const hasNewPendingQueries = this.pending.size > 0;
-        //if (hasNewPendingQueries) {
-        //} else {
-        //}
-        // 1 = 1 - 0
-        //
-        idRef.current = this.processed.size - this.pending.size;
-        // Are any pending
-      }
-      */
     }
     const id = idRef.current
     console.log(
@@ -56,7 +31,6 @@ class Collection {
       return this.processed.get(id)
     } else {
       this.ids.push(id)
-      console.log('added idRef to set', this.ids)
       this.pending.set(id, item)
       return item
     }
@@ -74,7 +48,6 @@ class Collection {
       this.lastProvisionedId += 1
     }
     return this.lastProvisionedId
-    //return this.ids.length
   }
   async process() {
     console.log('processing started')
