@@ -88,10 +88,10 @@ class Collection {
       return query;
     };
 
-    this.pending = new Map(parsed.pending.map((q, id) => {
+    this.pending = new Map(parsed.pending.map(([id, q]) => {
       return [id, makeQuery(q)];
     }));
-    this.processed = new Map(parsed.processed.map((q, id) => {
+    this.processed = new Map(parsed.processed.map(([id, q]) => {
       return [id, makeQuery(q)];
     }));
   }
