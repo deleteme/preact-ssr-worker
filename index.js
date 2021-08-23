@@ -14,6 +14,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
     <!DOCTYPE html>
     <html>
       <head>
+        <meta charset="utf-8" />
         <title>SSR Preact on Cloudflare Workers</title>
         <meta name="robots" content="noindex" />
         <link rel="icon" type="image/png" href="/favicon.png" />
@@ -28,21 +29,21 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           }
         </script>
         <script type="module">
-          import { h, hydrate } from 'preact';
+          import { h, hydrate } from "preact";
           import "htm"; // preload
           import "preact/hooks"; // preload
           import "/src/html.js"; // preload
 
           import { App } from "/src/app.js";
-          import { collection } from "./src/experiment-with-context.js";
+          import { collection } from "/src/experiment-with-context.js";
 
           const appPropsJson = \`${JSON.stringify(appProps)}\`;
           const props = JSON.parse(appPropsJson);
-          console.log('Bootstrapped App with props:', props);
-          console.log('restoring collection');
+          console.log("Bootstrapped App with props:", props);
+          console.log("restoring collection");
           collection.restore(props.collection);
           props.collection = collection;
-          hydrate(h(App, props), document.getElementById('app'));
+          hydrate(h(App, props), document.getElementById("app"));
         </script>
       </head>
       <body>
@@ -51,7 +52,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
         </div>
         <script type="module">
           const renderMeasurements = JSON.parse("${JSON.stringify(renderMeasurements)}")
-          console.log('renderMeasurements', renderMeasurements);
+          console.log("renderMeasurements", renderMeasurements);
         </script>
       </body>
     </html>
