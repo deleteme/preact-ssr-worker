@@ -63,6 +63,7 @@ export const fetchQuery = async (query, options = {}) => {
   console.log('fetchQuery body', JSON.stringify(body))
   const response = await fetch(url, {
     method: 'post',
+    mode: 'cors',
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${apiAccessToken}`,
