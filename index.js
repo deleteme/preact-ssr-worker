@@ -37,8 +37,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           import { App } from "/src/app.js";
           import { collection } from "/src/experiment-with-context.js";
 
-          const appPropsJson = \`${JSON.stringify(appProps)}\`;
-          const props = JSON.parse(appPropsJson);
+          const props = ${JSON.stringify(appProps)};
           console.log("Bootstrapped App with props:", props);
           console.log("restoring collection");
           collection.restore(props.collection);
