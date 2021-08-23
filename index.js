@@ -89,6 +89,9 @@ const renderAndRespond = async ({ params = {} }) => {
     children: renderedApp,
     renderMeasurements
   })
+
+  collection.reset();
+
   return new Response(body, {
     headers: { 'content-type': 'text/html' },
   })

@@ -8,6 +8,9 @@ console.log('calling experiment-with-context.js')
 
 class Collection {
   constructor() {
+    this.reset();
+  }
+  reset() {
     this.lastProvisionedId = null
     this.ids = []
     this.pending = new Map()
