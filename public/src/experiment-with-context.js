@@ -63,10 +63,10 @@ class Collection {
     }
     console.log('processing ending')
   }
-  toString() {
+  toJSON() {
     const processed = Array.from(this.processed);
     const pending = Array.from(this.pending);
-    return JSON.stringify({
+    return ({
       lastProvisionedId: this.lastProvisionedId,
       ids: this.ids,
       processed,
@@ -137,9 +137,9 @@ class Query {
     }
     return this
   }
-  toString() {
+  toJSON() {
     const { status, data, error, query, operationName, variables } = this;
-    return JSON.stringify({ status, data, error, query, operationName, variables });
+    return ({ status, data, error, query, operationName, variables });
   }
   restore(parsed) {
     console.log('Query.restore() called with', parsed);
