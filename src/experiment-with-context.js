@@ -92,6 +92,7 @@ class Collection {
       return [id, makeQuery(q)];
     }));
     this.processed = new Map(parsed.processed.map(([id, q]) => {
+      console.log('process iterator id', id, 'q', q);
       return [id, makeQuery(q)];
     }));
   }
