@@ -40,7 +40,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           const props = ${JSON.stringify(appProps)};
           console.log("Bootstrapped App with props:", props);
           collection.hydrate(props.collection);
-          console.log("restored collection", collection);
+          console.log("restored collection", JSON.stringify(collection));
           props.collection = collection;
           hydrate(h(App, props), document.getElementById("app"));
         </script>

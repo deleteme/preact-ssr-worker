@@ -78,7 +78,6 @@ class Collection {
   }
   hydrate(parsed) {
     console.log('collection.hydrate called with', JSON.stringify(parsed));
-    //const parsed = JSON.parse(string);
     this.lastProvisionedId = parsed.lastProvisionedId;
     this.ids = parsed.ids;
 
@@ -95,7 +94,6 @@ class Collection {
       return [id, makeQuery(q)];
     }));
     this.processed = new Map(parsed.processed.map(([id, q]) => {
-      console.log('process iterator id', id, 'q', q);
       return [id, makeQuery(q)];
     }));
   }
