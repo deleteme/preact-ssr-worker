@@ -77,7 +77,7 @@ class Collection {
     })
   }
   hydrate(parsed) {
-    console.log('collection.hydrate called with', JSON.string(parsed));
+    console.log('collection.hydrate called with', JSON.stringify(parsed));
     //const parsed = JSON.parse(string);
     this.lastProvisionedId = parsed.lastProvisionedId;
     this.ids = parsed.ids;
