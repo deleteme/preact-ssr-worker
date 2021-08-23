@@ -66,6 +66,7 @@ export const fetchQuery = async (query, options = {}) => {
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${apiAccessToken}`,
+      'Access-Control-Allow-Origin': 'https://staging.stellartickets.com',
     },
     body: JSON.stringify(body),
   })

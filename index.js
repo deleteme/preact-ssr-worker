@@ -95,7 +95,10 @@ const renderAndRespond = async ({ params = {} }) => {
   collection.reset()
 
   return new Response(body, {
-    headers: { 'content-type': 'text/html' },
+    headers: {
+      'content-type': 'text/html',
+      'Access-Control-Allow-Origin': 'https://staging.stellartickets.com',
+    },
   })
 }
 
