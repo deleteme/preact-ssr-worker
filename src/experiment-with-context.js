@@ -63,6 +63,38 @@ class Collection {
     }
     console.log('processing ending')
   }
+  toString() {
+    const processed = Array.from(this.processed);
+    const pending = Array.from(this.pending);
+    return JSON.stringify({
+      lastProvisionedId: this.lastProvisionedId,
+      ids: this.ids,
+      processed,
+      pending
+    })
+  }
+  restore(parsed) {
+    console.log('collection.restore called with', parsed);
+    //const parsed = JSON.parse(string);
+    this.lastProvisionedId = parsed.lastProvisionedId;
+    this.ids = parsed.ids;
+
+    const makeQuery = q => {
+      const query = new Query(q.query, {
+        operationName: q.operationName,
+        variables: q.variables
+      });
+      query.restore(q);
+      return query;
+    };
+
+    this.pending = new Map(parsed.pending.map((q, id) => {
+      return [id, makeQuery(q)];
+    }));
+    this.processed = new Map(parsed.processed.map((q, id) => {
+      return [id, makeQuery(q)];
+    }));
+  }
 }
 const PENDING = 'PENDING'
 const LOADING = 'LOADING'
@@ -105,6 +137,28 @@ class Query {
     }
     return this
   }
+  toString() {
+    const { status, data, error, query, operationName, variables } = this;
+    return JSON.stringify({ status, data, error, query, operationName, variables });
+  }
+  restore(parsed) {
+    console.log('Query.restore() called with', parsed);
+    this.status = parsed.status;
+    this.data = parsed.data;
+    this.error = parsed.error
+    this.query = parsed.query;
+    this.operationName = parsed.operationName;
+    this.variables = parsed.variables;
+  }
+  //fromString(string) {
+    //const parsed = JSON.parse(string);
+    //this.status = parsed.status;
+    //this.data = parsed.data;
+    //this.error = parsed.error
+    //this.query = parsed.query;
+    //this.operationName = parsed.operationName;
+    //this.variables = parsed.variables;
+  //}
 }
 
 export const collection = new Collection()

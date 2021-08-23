@@ -9,7 +9,7 @@ import { collection } from './src/experiment-with-context.js'
 
 const router = Router()
 
-const doc = ({ children, appProps }) => {
+const doc = ({ children, appProps, renderMeasurements }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -34,9 +34,14 @@ const doc = ({ children, appProps }) => {
           import "/src/html.js"; // preload
 
           import { App } from "/src/app.js";
+          import { collection } from "./src/experiment-with-context.js";
+
           const appPropsJson = \`${JSON.stringify(appProps)}\`;
           const props = JSON.parse(appPropsJson);
           console.log('Bootstrapped App with props:', props);
+          console.log('restoring collection');
+          collection.restore(props.collection);
+          props.collection = collection;
           hydrate(h(App, props), document.getElementById('app'));
         </script>
       </head>
@@ -44,6 +49,10 @@ const doc = ({ children, appProps }) => {
         <div id="app">
           ${children}
         </div>
+        <script type="module">
+          const renderMeasurements = JSON.parse("${JSON.stringify(renderMeasurements)}")
+          console.log('renderMeasurements', renderMeasurements);
+        </script>
       </body>
     </html>
   `
@@ -51,16 +60,20 @@ const doc = ({ children, appProps }) => {
 
 const renderAndRespond = async ({ params = {} }) => {
   const appProps = { params, collection }
+  const renderMeasurements = [];
 
   let renderCount = 0
   let renderedApp = ''
 
   const doRender = () => {
+    const start = Date.now();
     renderCount += 1
     console.log('\n'.repeat(4))
     console.log('RENDER', renderCount, 'started')
     renderedApp = render(h(App, appProps), {}, { pretty: true })
     console.log('RENDER', renderCount, 'completed')
+    const end = Date.now();
+    renderMeasurements.push(end - start);
   }
   doRender()
 
@@ -74,6 +87,7 @@ const renderAndRespond = async ({ params = {} }) => {
   const body = doc({
     appProps,
     children: renderedApp,
+    renderMeasurements
   })
   return new Response(body, {
     headers: { 'content-type': 'text/html' },
