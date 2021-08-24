@@ -114,7 +114,8 @@ class Query {
     this.operationName = options.operationName
     this.variables = options.variables
   }
-  async call({ origin }) {
+  async call(callOptions) {
+    const origin = callOptions && callOptions.origin;
     try {
       this.status = LOADING
       this.response = await fetchQuery(this.query, {
