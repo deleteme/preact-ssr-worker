@@ -59,7 +59,7 @@ class Collection {
       console.log(id, item, 'query.status === PENDING', item.status === PENDING)
       if (item.status === PENDING) {
         console.log('requesting query', item.query)
-        await item.call()
+        await item.call({ origin: this.origin })
         this.pending.delete(id)
         this.processed.set(id, item)
       }
@@ -114,12 +114,13 @@ class Query {
     this.operationName = options.operationName
     this.variables = options.variables
   }
-  async call() {
+  async call({ origin }) {
     try {
       this.status = LOADING
       this.response = await fetchQuery(this.query, {
         operationName: this.operationName,
         variables: this.variables,
+        origin,
       })
       console.log('this.response.status', this.response.status)
       try {

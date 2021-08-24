@@ -54,20 +54,17 @@ export const query = () => {
   })
 }
 
-const url = 'https://staging.stellartickets.com/graphql'
-
 export const fetchQuery = async (query, options = {}) => {
   console.log('fetchQuery called with', query, options)
-  const { variables, operationName } = options
+  const { variables, operationName, origin = '' } = options
   const body = { operationName, variables, query }
   console.log('fetchQuery body', JSON.stringify(body))
+  const url = origin + '/graphql'
   const response = await fetch(url, {
     method: 'post',
-    mode: 'cors',
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${apiAccessToken}`,
-      'Access-Control-Allow-Origin': 'https://staging.stellartickets.com',
     },
     body: JSON.stringify(body),
   })

@@ -7,6 +7,9 @@ import { App } from './src/app.js'
 import { html } from './src/html.js'
 import { collection } from './src/experiment-with-context.js'
 
+const graphQLOrigin = 'https://staging.stellartickets.com'
+collection.origin = graphQLOrigin
+
 const router = Router()
 
 const doc = ({ children, appProps, renderMeasurements }) => {
@@ -97,13 +100,34 @@ const renderAndRespond = async ({ params = {} }) => {
   return new Response(body, {
     headers: {
       'content-type': 'text/html',
-      'Access-Control-Allow-Origin': 'https://staging.stellartickets.com',
     },
   })
 }
 
 router.get('/', renderAndRespond)
 router.get('/pages/:page', renderAndRespond)
+router.post('/graphql', async originalRequest => {
+  const body = await originalRequest.json()
+
+  const url = graphQLOrigin + '/graphql'
+  const response = await fetch(url, {
+    method: 'post',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${apiAccessToken}`,
+    },
+    body: JSON.stringify(body),
+  })
+  console.log('proxied request headers', response.headers)
+  const resultJson = await response.json()
+
+  return new Response(JSON.stringify(resultJson), {
+    headers: {
+      ...response.headers,
+      'content-type': 'application/json',
+    },
+  })
+})
 
 // 404 for everything else
 router.all('*', () => {
