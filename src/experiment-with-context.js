@@ -78,8 +78,8 @@ class Collection {
   }
   hydrate(parsed) {
     console.log('collection.hydrate called with', JSON.stringify(parsed));
-    this.lastProvisionedId = parsed.lastProvisionedId;
-    this.ids = parsed.ids;
+    //this.lastProvisionedId = parsed.lastProvisionedId;
+    //this.ids = parsed.ids;
 
     const makeQuery = q => {
       const query = new Query(q.query, {

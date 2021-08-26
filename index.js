@@ -41,10 +41,10 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           import { collection } from "/src/experiment-with-context.js";
 
           const props = ${JSON.stringify(appProps)};
-          console.log("Bootstrapped App with props:", props);
           collection.hydrate(props.collection);
           console.log("restored collection", JSON.stringify(collection));
           props.collection = collection;
+          console.log("Bootstrapped App with props:", ${JSON.stringify(appProps)});
           hydrate(h(App, props), document.getElementById("app"));
         </script>
       </head>
