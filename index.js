@@ -12,7 +12,7 @@ collection.origin = graphQLOrigin
 
 const router = Router()
 
-const doc = ({ children, appProps, renderMeasurements }) => {
+const doc = ({ children, appProps }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -44,7 +44,9 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           collection.hydrate(props.collection);
           console.log("restored collection", JSON.stringify(collection));
           props.collection = collection;
-          console.log("Bootstrapped App with props:", ${JSON.stringify(appProps)});
+          console.log("Bootstrapped App with props:", ${JSON.stringify(
+            appProps,
+          )});
           hydrate(h(App, props), document.getElementById("app"), { pretty: false });
         </script>
       </head>
@@ -52,54 +54,82 @@ const doc = ({ children, appProps, renderMeasurements }) => {
         <div id="app">
           ${children}
         </div>
-        <script defer>
-          const renderMeasurements = JSON.parse("${JSON.stringify(
-            renderMeasurements,
-          )}")
-          console.log("renderMeasurements", renderMeasurements);
-        </script>
       </body>
     </html>
   `
 }
 
+const renderServerTiming = measurements => {
+  const measurementDescriptions = {
+    db: 'Querying GraphQL',
+    html: 'Rendering Template',
+  }
+  const durationByName = measurements.reduce((byName, measurement) => {
+    const { name, duration } = measurement
+    if (!(name in byName)) {
+      byName[name] = duration
+    } else {
+      byName[name] += duration
+    }
+    return byName
+  }, {})
+  const renderedHeader = Object.entries(durationByName)
+    .map(([name, duration]) => {
+      const description = measurementDescriptions[name]
+      return `${name};dur=${duration};desc="${description}"`
+    })
+    .join(', ')
+  return renderedHeader
+}
+
 const renderAndRespond = async ({ params = {} }) => {
   const appProps = { params, collection }
-  const renderMeasurements = []
+  const measurements = []
+
+  const measure = async (name, cb) => {
+    const start = Date.now()
+    const value = await cb()
+    const end = Date.now()
+    const duration = end - start
+    measurements.push({ name, duration })
+    return value
+  }
 
   let renderCount = 0
   let renderedApp = ''
 
   const doRender = () => {
-    const start = Date.now()
     renderCount += 1
     console.log('\n'.repeat(4))
     console.log('RENDER', renderCount, 'started')
     renderedApp = render(h(App, appProps), {}, { pretty: false })
     console.log('RENDER', renderCount, 'completed')
-    const end = Date.now()
-    renderMeasurements.push(end - start)
   }
-  doRender()
+
+  measure('html', doRender)
 
   while (collection.pending.size > 0) {
-    await collection.process()
-    doRender()
+    await measure('db', async () => {
+      return await collection.process()
+    })
+    measure('html', doRender)
   }
 
   console.log(`render completed in ${renderCount} passes.`)
 
-  const body = doc({
-    appProps,
-    children: renderedApp,
-    renderMeasurements,
-  })
+  const body = await measure('html', () =>
+    doc({
+      appProps,
+      children: renderedApp,
+    }),
+  )
 
   collection.reset()
 
   return new Response(body, {
     headers: {
       'content-type': 'text/html',
+      'Server-Timing': renderServerTiming(measurements),
     },
   })
 }
