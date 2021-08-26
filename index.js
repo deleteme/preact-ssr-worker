@@ -53,7 +53,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
         <div id="app">
           ${children}
         </div>
-        <script type="module">
+        <script defer>
           const renderMeasurements = JSON.parse("${JSON.stringify(
             renderMeasurements,
           )}")
