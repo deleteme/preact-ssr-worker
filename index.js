@@ -45,7 +45,7 @@ const doc = ({ children, appProps, renderMeasurements }) => {
           console.log("restored collection", JSON.stringify(collection));
           props.collection = collection;
           console.log("Bootstrapped App with props:", ${JSON.stringify(appProps)});
-          hydrate(h(App, props), document.getElementById("app"));
+          hydrate(h(App, props), document.getElementById("app"), { pretty: false });
         </script>
       </head>
       <body>
@@ -75,7 +75,7 @@ const renderAndRespond = async ({ params = {} }) => {
     renderCount += 1
     console.log('\n'.repeat(4))
     console.log('RENDER', renderCount, 'started')
-    renderedApp = render(h(App, appProps), {}, { pretty: true })
+    renderedApp = render(h(App, appProps), {}, { pretty: false })
     console.log('RENDER', renderCount, 'completed')
     const end = Date.now()
     renderMeasurements.push(end - start)
