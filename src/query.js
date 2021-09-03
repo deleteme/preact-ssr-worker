@@ -16,44 +16,6 @@ export const gql = (strings, ...args) => {
 
 const apiAccessToken = 'cQtJhHPJr9kwSA5vlYoriresrBzdm2LTZGe3d7'
 
-export const query = () => {
-  console.log('query() called')
-  const url = 'https://staging.stellartickets.com/graphql'
-  const body = {
-    operationName: 'OrgHomeSubscriptions',
-    variables: { orgSlug: 'bobs-party-time-lounge' },
-    query: gql`
-      query OrgHomeSubscriptions($orgSlug: String, $domain: String) {
-        organization(slug: $orgSlug, domain: $domain) {
-          id
-          name
-          subscriptionProducts: products(
-            where: {
-              published: { equals: true }
-              listed: { equals: true }
-              type: { key: { equals: "subscription" } }
-            }
-          ) {
-            nodes {
-              id
-            }
-            totalCount
-          }
-        }
-      }
-    `,
-  }
-  console.log('body', body)
-  return fetch(url, {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${apiAccessToken}`,
-    },
-    body: JSON.stringify(body),
-  })
-}
-
 export const fetchQuery = async (query, options = {}) => {
   console.log('fetchQuery called with', query, options)
   const { variables, operationName, origin = '' } = options
