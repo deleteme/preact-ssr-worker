@@ -15,3 +15,6 @@ format = "service-worker"
 [site]
 bucket = "./public" # Add the directory with your static assets!
 entry-point = "." # JS folder serving your assets
+
+# [secrets]
+# STELLAR_STAGING_TOKEN

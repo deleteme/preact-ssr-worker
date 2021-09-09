@@ -140,7 +140,7 @@ router.post('/graphql', async originalRequest => {
   const body = await originalRequest.json()
 
   const url = graphQLOrigin + '/graphql'
-  const apiAccessToken = 'cQtJhHPJr9kwSA5vlYoriresrBzdm2LTZGe3d7'
+  const apiAccessToken = STELLAR_STAGING_TOKEN
   const response = await fetch(url, {
     method: 'post',
     headers: {

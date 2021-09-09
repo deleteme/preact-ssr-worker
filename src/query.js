@@ -14,7 +14,7 @@ export const gql = (strings, ...args) => {
   return rendered
 }
 
-const apiAccessToken = 'cQtJhHPJr9kwSA5vlYoriresrBzdm2LTZGe3d7'
+const apiAccessToken = STELLAR_STAGING_TOKEN;
 
 export const fetchQuery = async (query, options = {}) => {
   console.log('fetchQuery called with', query, options)
