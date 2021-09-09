@@ -14,11 +14,9 @@ export const gql = (strings, ...args) => {
   return rendered
 }
 
-const apiAccessToken = STELLAR_STAGING_TOKEN;
-
 export const fetchQuery = async (query, options = {}) => {
   console.log('fetchQuery called with', query, options)
-  const { variables, operationName, origin = '' } = options
+  const { variables, operationName, origin = '', headers } = options
   const body = { operationName, variables, query }
   console.log('fetchQuery body', JSON.stringify(body))
   const url = origin + '/graphql'
@@ -26,7 +24,7 @@ export const fetchQuery = async (query, options = {}) => {
     method: 'post',
     headers: {
       'content-type': 'application/json',
-      Authorization: `Bearer ${apiAccessToken}`,
+      ...headers,
     },
     body: JSON.stringify(body),
   })

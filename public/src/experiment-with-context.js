@@ -52,14 +52,15 @@ class Collection {
     }
     return this.lastProvisionedId
   }
-  async process() {
+  async process(options = {}) {
     console.log('processing started')
+    const { headers } = options;
     this.lastProvisionedId = null
     for (const [id, item] of this.pending.entries()) {
       console.log(id, item, 'query.status === PENDING', item.status === PENDING)
       if (item.status === PENDING) {
         console.log('requesting query', item.query)
-        await item.call({ origin: this.origin })
+        await item.call({ origin: this.origin, headers: headers })
         this.pending.delete(id)
         this.processed.set(id, item)
       }
@@ -117,12 +118,14 @@ class Query {
   }
   async call(callOptions) {
     const origin = callOptions && callOptions.origin;
+    const headers = callOptions && callOptions.headers;
     try {
       this.status = LOADING
       this.response = await fetchQuery(this.query, {
         operationName: this.operationName,
         variables: this.variables,
         origin,
+        headers,
       })
       console.log('this.response.status', this.response.status)
       try {

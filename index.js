@@ -10,6 +10,8 @@ import { collection } from './src/experiment-with-context.js'
 const graphQLOrigin = 'https://staging.stellartickets.com'
 collection.origin = graphQLOrigin
 
+const apiAccessToken = STELLAR_STAGING_TOKEN
+
 const router = Router()
 
 const doc = ({ children, appProps }) => {
@@ -110,7 +112,11 @@ const renderAndRespond = async ({ params = {} }) => {
 
   while (collection.pending.size > 0) {
     await measure('db', async () => {
-      return await collection.process()
+      return await collection.process({
+        headers: {
+          Authorization: `Bearer ${apiAccessToken}`,
+        },
+      })
     })
     measure('html', doRender)
   }
@@ -140,7 +146,6 @@ router.post('/graphql', async originalRequest => {
   const body = await originalRequest.json()
 
   const url = graphQLOrigin + '/graphql'
-  const apiAccessToken = STELLAR_STAGING_TOKEN
   const response = await fetch(url, {
     method: 'post',
     headers: {
