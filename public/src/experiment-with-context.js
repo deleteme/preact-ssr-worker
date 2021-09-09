@@ -78,6 +78,7 @@ class Collection {
   }
   hydrate(parsed) {
     console.log('collection.hydrate called with', JSON.stringify(parsed));
+    // Do not hydrate the ids, which allows the ids to be created as the hooks are called during render.
     //this.lastProvisionedId = parsed.lastProvisionedId;
     //this.ids = parsed.ids;
 
