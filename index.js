@@ -29,7 +29,8 @@ const doc = ({ children, appProps }) => {
             "imports": {
               "htm": "https://cdn.jsdelivr.net/npm/htm@3.1.0/dist/htm.module.js",
               "preact": "https://cdn.jsdelivr.net/npm/preact@10.5.14/dist/preact.module.js",
-              "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.5.14/hooks/dist/hooks.module.js"
+              "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.5.14/hooks/dist/hooks.module.js",
+              "regexparam": "https://cdn.skypack.dev/pin/regexparam@v2.0.0-UMBtkTmrdIiu5OtJ4Z06/mode=imports/optimized/regexparam.js"
             }
           }
         </script>
@@ -84,8 +85,14 @@ const renderServerTiming = measurements => {
   return renderedHeader
 }
 
+const routes = [
+  '/',
+  '/pages/:page'
+];
+
+
 const renderAndRespond = async ({ params = {} }) => {
-  const appProps = { params, collection }
+  const appProps = { params, collection, routes }
   const measurements = []
 
   const measure = async (name, cb) => {
@@ -140,8 +147,10 @@ const renderAndRespond = async ({ params = {} }) => {
   })
 }
 
-router.get('/', renderAndRespond)
-router.get('/pages/:page', renderAndRespond)
+routes.forEach(route => router.get(route, renderAndRespond));
+
+//router.get('/', renderAndRespond)
+//router.get('/pages/:page', renderAndRespond)
 router.post('/graphql', async originalRequest => {
   const body = await originalRequest.json()
 

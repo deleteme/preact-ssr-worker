@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'preact/hooks'
 import { html } from './html.js'
 import { Subscriptions } from './subscriptions.js'
 import { useQuery, CollectionContext, gql } from './experiment-with-context.js'
+import { Router } from './router.js'
 
 const Layout = props => {
   const [value, setValue] = useState(0)
@@ -35,7 +36,7 @@ const Layout = props => {
     </header>
     <main>
       <h1>
-        ${!params && 'Home'} ${page === 'about' && 'About'}
+        ${!page && 'Home'} ${page === 'about' && 'About'}
         ${page === 'subscriptions' && 'Subscriptions'}
       </h1>
       ${page === 'subscriptions' &&
@@ -56,10 +57,13 @@ const Layout = props => {
 
 export function App(props = {}) {
   console.log('\nApp() called with props', JSON.stringify(props))
-  const { collection } = props
-  return html`
+  const { collection, routes } = props
+  const children = ({ params }) => html`
     <${CollectionContext.Provider} value=${collection}>
-      <${Layout} ...${props}><//>
+      <${Layout} ...${props} params=${params}><//>
     <//>
+  `
+  return html`
+    <${Router} routes=${routes}>${children}<//>
   `
 }
