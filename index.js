@@ -22,6 +22,7 @@ const doc = ({ children, appProps }) => {
         <meta charset="utf-8" />
         <title>SSR Preact on Cloudflare Workers</title>
         <meta name="robots" content="noindex" />
+        <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@0.12.2/dist/es-module-shims.min.js"></script>
         <script type="importmap">
