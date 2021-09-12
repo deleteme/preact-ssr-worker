@@ -20,7 +20,6 @@ const Layout = props => {
     { variables: { id: 'fcbf1994-4b35-451d-bffb-90cb6032f42b' } },
   )
   const organization = orgResult.data && orgResult.data.organization
-  console.log('org orgResult', orgResult)
   if (!organization) return ``
   return html`
     <header>
@@ -59,14 +58,12 @@ export function App(props = {}) {
   console.log('\nApp() called with props', JSON.stringify(props))
   const { collection, routes, routerInitialState } = props
   const children = ({ params }) => {
-    console.log('Router children called with params', params)
     return html`
       <${CollectionContext.Provider} value=${collection}>
         <${Layout} params=${params}><//>
       <//>
     `
   }
-  console.log('calling <Router> with initialState:', routerInitialState)
   return html`
     <${Router} routes=${routes} initialState=${routerInitialState}
       >${children}<//
