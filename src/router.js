@@ -45,24 +45,14 @@ const getParamsFromRoute = (route, pathname) => {
 }
 
 export const Router = ({ routes, children, initialState }) => {
-  console.log('Router called with', routes, children, initialState)
-  console.log(
-    'Router, calling useReducer with initialState',
-    initialState.url,
-    initialState.params,
-  )
   const [state, dispatch] = useReducer((state, action) => {
-    console.log('reducer fn called with action', JSON.stringify(action))
     const { type, params, url } = action
     if (type === 'navigate') {
       return { params, url }
     }
   }, initialState)
-  console.log('<Router> useReducer returned state:', state)
 
-  console.log('Router, calling useEffect')
   useEffect(() => {
-    console.log('Router useEffect cb called.')
     const appHistory = getAppHistory()
     if (!appHistory) return
     const handleNavigate = event => {
@@ -81,7 +71,6 @@ export const Router = ({ routes, children, initialState }) => {
     appHistory.addEventListener('navigate', handleNavigate)
     return () => appHistory.removeEventListener('navigate', handleNavigate)
   }, [routes])
-  console.log('Router is returning now.')
 
   return html`
     ${children({ params: state.params, url: state.url })}
