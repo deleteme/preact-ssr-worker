@@ -24,10 +24,10 @@ const Layout = props => {
   if (!organization) return ``
   return html`
     <header>
-      <h1>
-        app, <em>in html!</em>
+      <h1>app, <em>in html!</em></h1>
+      <h2>
         ${organization.name}
-      </h1>
+      </h2>
       <nav>
         <a href="/">Home</a>
         <a href="/pages/about">About</a>
@@ -57,13 +57,19 @@ const Layout = props => {
 
 export function App(props = {}) {
   console.log('\nApp() called with props', JSON.stringify(props))
-  const { collection, routes } = props
-  const children = ({ params }) => html`
-    <${CollectionContext.Provider} value=${collection}>
-      <${Layout} ...${props} params=${params}><//>
-    <//>
-  `
+  const { collection, routes, routerInitialState } = props
+  const children = ({ params }) => {
+    console.log('Router children called with params', params)
+    return html`
+      <${CollectionContext.Provider} value=${collection}>
+        <${Layout} params=${params}><//>
+      <//>
+    `
+  }
+  console.log('calling <Router> with initialState:', routerInitialState)
   return html`
-    <${Router} routes=${routes}>${children}<//>
+    <${Router} routes=${routes} initialState=${routerInitialState}
+      >${children}<//
+    >
   `
 }

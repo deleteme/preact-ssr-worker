@@ -8,7 +8,7 @@ console.log('calling experiment-with-context.js')
 
 class Collection {
   constructor() {
-    this.reset();
+    this.reset()
   }
   reset() {
     this.lastProvisionedId = null
@@ -54,7 +54,7 @@ class Collection {
   }
   async process(options = {}) {
     console.log('processing started')
-    const { headers } = options;
+    const { headers } = options
     this.lastProvisionedId = null
     for (const [id, item] of this.pending.entries()) {
       console.log(id, item, 'query.status === PENDING', item.status === PENDING)
@@ -68,17 +68,17 @@ class Collection {
     console.log('processing ending')
   }
   toJSON() {
-    const processed = Array.from(this.processed);
-    const pending = Array.from(this.pending);
-    return ({
+    const processed = Array.from(this.processed)
+    const pending = Array.from(this.pending)
+    return {
       lastProvisionedId: this.lastProvisionedId,
       ids: this.ids,
       processed,
-      pending
-    })
+      pending,
+    }
   }
   hydrate(parsed) {
-    console.log('collection.hydrate called with', JSON.stringify(parsed));
+    console.log('collection.hydrate called with', JSON.stringify(parsed))
     // Do not hydrate the ids, which allows the ids to be created as the hooks are called during render.
     //this.lastProvisionedId = parsed.lastProvisionedId;
     //this.ids = parsed.ids;
@@ -86,18 +86,22 @@ class Collection {
     const makeQuery = q => {
       const query = new Query(q.query, {
         operationName: q.operationName,
-        variables: q.variables
-      });
-      query.restore(q);
-      return query;
-    };
+        variables: q.variables,
+      })
+      query.restore(q)
+      return query
+    }
 
-    this.pending = new Map(parsed.pending.map(([id, q]) => {
-      return [id, makeQuery(q)];
-    }));
-    this.processed = new Map(parsed.processed.map(([id, q]) => {
-      return [id, makeQuery(q)];
-    }));
+    this.pending = new Map(
+      parsed.pending.map(([id, q]) => {
+        return [id, makeQuery(q)]
+      }),
+    )
+    this.processed = new Map(
+      parsed.processed.map(([id, q]) => {
+        return [id, makeQuery(q)]
+      }),
+    )
   }
 }
 const PENDING = 'PENDING'
@@ -117,8 +121,8 @@ class Query {
     this.variables = options.variables
   }
   async call(callOptions) {
-    const origin = callOptions && callOptions.origin;
-    const headers = callOptions && callOptions.headers;
+    const origin = callOptions && callOptions.origin
+    const headers = callOptions && callOptions.headers
     try {
       this.status = LOADING
       this.response = await fetchQuery(this.query, {
@@ -130,7 +134,7 @@ class Query {
       console.log('this.response.status', this.response.status)
       try {
         const responseJSON = await this.response.json()
-        this.data = responseJSON.data;
+        this.data = responseJSON.data
       } catch (error) {
         console.log('error parsing json', error.message)
       }
@@ -146,26 +150,26 @@ class Query {
     return this
   }
   toJSON() {
-    const { status, data, error, query, operationName, variables } = this;
-    return ({ status, data, error, query, operationName, variables });
+    const { status, data, error, query, operationName, variables } = this
+    return { status, data, error, query, operationName, variables }
   }
   restore(parsed) {
-    console.log('Query.restore() called with', parsed);
-    this.status = parsed.status;
-    this.data = parsed.data;
+    console.log('Query.restore() called with', parsed)
+    this.status = parsed.status
+    this.data = parsed.data
     this.error = parsed.error
-    this.query = parsed.query;
-    this.operationName = parsed.operationName;
-    this.variables = parsed.variables;
+    this.query = parsed.query
+    this.operationName = parsed.operationName
+    this.variables = parsed.variables
   }
   //fromString(string) {
-    //const parsed = JSON.parse(string);
-    //this.status = parsed.status;
-    //this.data = parsed.data;
-    //this.error = parsed.error
-    //this.query = parsed.query;
-    //this.operationName = parsed.operationName;
-    //this.variables = parsed.variables;
+  //const parsed = JSON.parse(string);
+  //this.status = parsed.status;
+  //this.data = parsed.data;
+  //this.error = parsed.error
+  //this.query = parsed.query;
+  //this.operationName = parsed.operationName;
+  //this.variables = parsed.variables;
   //}
 }
 
@@ -207,7 +211,7 @@ export const useQuery = (gql, options) => {
     loading: query.status === LOADING,
     status: query.status,
     error: query.error,
-    data: query.data
+    data: query.data,
   }
   const [result, dispatch] = useReducer(queryReducer, initialState)
 

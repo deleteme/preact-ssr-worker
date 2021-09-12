@@ -86,14 +86,11 @@ const renderServerTiming = measurements => {
   return renderedHeader
 }
 
-const routes = [
-  '/',
-  '/pages/:page'
-];
+const routes = ['/', '/pages/:page']
 
-
-const renderAndRespond = async ({ params = {} }) => {
-  const appProps = { params, collection, routes }
+const renderAndRespond = async ({ params = {}, url }) => {
+  const routerInitialState = { params, url }
+  const appProps = { params, collection, routes, routerInitialState }
   const measurements = []
 
   const measure = async (name, cb) => {
@@ -148,7 +145,7 @@ const renderAndRespond = async ({ params = {} }) => {
   })
 }
 
-routes.forEach(route => router.get(route, renderAndRespond));
+routes.forEach(route => router.get(route, renderAndRespond))
 
 //router.get('/', renderAndRespond)
 //router.get('/pages/:page', renderAndRespond)
