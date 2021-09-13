@@ -205,7 +205,7 @@ export const useQuery = (gql, options) => {
     return () => {
       collection.unregister(idRef)
     }
-  }, [idRef])
+  }, [idRef, collection])
 
   const initialState = {
     loading: query.status === LOADING,

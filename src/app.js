@@ -39,9 +39,7 @@ const Layout = props => {
         ${page === 'subscriptions' && 'Subscriptions'}
       </h1>
       ${page === 'subscriptions' &&
-        Subscriptions({
-          orgId: organization.id,
-        })}
+        html`<${Subscriptions} orgId=${organization.id} />`}
     </main>
     <footer>
       foot
