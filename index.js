@@ -161,11 +161,11 @@ router.post('/graphql', async originalRequest => {
     },
     body: JSON.stringify(body),
   })
-  console.log('proxied request headers', response.headers)
+  console.log('proxied request headers', JSON.stringify(response.headers))
   const resultJson = await response.json()
 
   const allowedCorsOrigins = ['http://localhost:63019']
-  const corsOrigin = allowedCorsOrigins.find(o => o === originalRequest.origin)
+  const corsOrigin = allowedCorsOrigins.find(o => o === originalRequest.headers.origin)
   console.log('corsOrigin:', corsOrigin);
 
   const corsHeaders = {}
@@ -197,6 +197,7 @@ addEventListener('fetch', event => {
       try {
         const routedResponse = await router.handle(event.request)
         console.log('routedResponse', routedResponse)
+        console.log('routedResponse.headers', JSON.stringify(routedResponse.headers))
         return routedResponse
       } catch (e) {
         if (e === 'no route') {
