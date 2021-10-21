@@ -170,6 +170,7 @@ router.post('/graphql', async originalRequest => {
   const corsHeaders = {}
   if (corsOrigin) {
     corsHeaders['Access-Control-Allow-Origin'] = corsOrigin
+    corsHeaders['Vary'] = 'Origin'
   }
   return new Response(JSON.stringify(resultJson), {
     headers: {
