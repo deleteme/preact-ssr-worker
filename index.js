@@ -161,10 +161,12 @@ router.post('/graphql', async originalRequest => {
     },
     body: JSON.stringify(body),
   })
-  console.log('proxied request headers', JSON.stringify(response.headers))
+  console.log('proxied response headers', JSON.stringify(response.headers))
   const resultJson = await response.json()
 
   const allowedCorsOrigins = ['http://localhost:63019']
+  console.log('originalRequest.headers', JSON.stringify(originalRequest.headers));
+  console.log('originalRequest.headers.origin', originalRequest.headers.origin);
   const corsOrigin = allowedCorsOrigins.find(o => o === originalRequest.headers.origin)
   console.log('corsOrigin:', corsOrigin);
 
