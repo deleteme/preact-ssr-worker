@@ -65,6 +65,7 @@ const doc = ({ children, appProps }) => {
 
 const renderServerTiming = measurements => {
   const measurementDescriptions = {
+    kv: 'Reading KV cache',
     db: 'Querying GraphQL',
     html: 'Rendering Template',
   }
@@ -88,9 +89,15 @@ const renderServerTiming = measurements => {
 
 const routes = ['/', '/pages/:page']
 
-const renderAndRespond = async ({ params = {}, url }) => {
-  const routerInitialState = { params, url }
-  const appProps = { params, collection, routes, routerInitialState }
+const getSecondsSinceEpoch = secondsFromNow => {
+  const now = Date.now() / 60
+  return Math.round(Math.abs(now + secondsFromNow))
+}
+
+const renderAndRespond = async request => {
+  const { params = {}, url } = request
+  const cacheUrl = new URL(request.url)
+  const cacheKey = cacheUrl.pathname
   const measurements = []
 
   const measure = async (name, cb) => {
@@ -101,48 +108,83 @@ const renderAndRespond = async ({ params = {}, url }) => {
     measurements.push({ name, duration })
     return value
   }
-
-  let renderCount = 0
-  let renderedApp = ''
-
-  const doRender = () => {
-    renderCount += 1
-    console.log('\n'.repeat(4))
-    console.log('RENDER', renderCount, 'started')
-    renderedApp = render(h(App, appProps), {}, { pretty: false })
-    console.log('RENDER', renderCount, 'completed')
-  }
-
-  measure('html', doRender)
-
-  while (collection.pending.size > 0) {
-    await measure('db', async () => {
-      return await collection.process({
-        headers: {
-          Authorization: `Bearer ${apiAccessToken}`,
-        },
-      })
-    })
-    measure('html', doRender)
-  }
-
-  console.log(`render completed in ${renderCount} passes.`)
-
-  const body = await measure('html', () =>
-    doc({
-      appProps,
-      children: renderedApp,
-    }),
+  const cachedBody = await measure('kv', async () => {
+    return await HTMLBODY.get(cacheKey)
+  })
+  console.log(
+    `cacheKey: '${cacheKey}',`,
+    'cachedBody && cachedBody.length',
+    cachedBody && cachedBody.length,
   )
-
-  collection.reset()
-
-  return new Response(body, {
-    headers: {
+  const ttl = 60
+  const getHeaders = () => {
+    return {
       'content-type': 'text/html',
       'Server-Timing': renderServerTiming(measurements),
-    },
-  })
+      'Cache-Control': `public`,
+      //Expires: (d => {
+      //d.setSeconds(d.getSeconds() + ttl);
+      //return d.toGMTString()
+      //})(new Date())
+    }
+  }
+  let response
+
+  if (cachedBody) {
+    console.log('CACHE HIT: reusing body from kv HTMLBODY namespace')
+    response = new Response(cachedBody, {
+      headers: getHeaders(),
+    })
+  } else {
+    console.log('CACHE MISS: kv HTMLBODY namespace')
+    const routerInitialState = { params, url }
+    const appProps = { params, collection, routes, routerInitialState }
+
+    let renderCount = 0
+    let renderedApp = ''
+
+    const doRender = () => {
+      renderCount += 1
+      console.log('\n'.repeat(4))
+      console.log('RENDER', renderCount, 'started')
+      renderedApp = render(h(App, appProps), {}, { pretty: false })
+      console.log('RENDER', renderCount, 'completed')
+    }
+
+    measure('html', doRender)
+
+    while (collection.pending.size > 0) {
+      await measure('db', async () => {
+        return await collection.process({
+          headers: {
+            Authorization: `Bearer ${apiAccessToken}`,
+          },
+        })
+      })
+      measure('html', doRender)
+    }
+
+    console.log(`render completed in ${renderCount} passes.`)
+
+    const body = await measure('html', () =>
+      doc({
+        appProps,
+        children: renderedApp,
+      }),
+    )
+
+    console.log('writing body to kv HTMLBODY namespace')
+    await HTMLBODY.put(cacheKey, body, {
+      expirationTtl: ttl,
+    })
+
+    collection.reset()
+
+    response = new Response(body, {
+      headers: getHeaders(),
+    })
+  }
+  return response
 }
 
 routes.forEach(route => router.get(route, renderAndRespond))
@@ -165,17 +207,22 @@ router.post('/graphql', async originalRequest => {
   const resultJson = await response.json()
 
   const allowedCorsOrigins = ['http://localhost:63019']
-  console.log('originalRequest.headers', JSON.stringify(originalRequest.headers));
-  console.log('originalRequest.headers.origin', originalRequest.headers.origin);
-  const corsOrigin = allowedCorsOrigins.find(o => o === originalRequest.headers.get('Origin'))
-  console.log('corsOrigin:', corsOrigin);
+  console.log(
+    'originalRequest.headers',
+    JSON.stringify(originalRequest.headers),
+  )
+  console.log('originalRequest.headers.origin', originalRequest.headers.origin)
+  const corsOrigin = allowedCorsOrigins.find(
+    o => o === originalRequest.headers.get('Origin'),
+  )
+  console.log('corsOrigin:', corsOrigin)
 
   const corsHeaders = {}
   if (corsOrigin) {
     corsHeaders['Access-Control-Allow-Origin'] = corsOrigin
     corsHeaders['Vary'] = 'Origin'
   }
-  console.log('corsHeaders:', JSON.stringify(corsHeaders));
+  console.log('corsHeaders:', JSON.stringify(corsHeaders))
   return new Response(JSON.stringify(resultJson), {
     headers: {
       ...response.headers,
@@ -197,11 +244,20 @@ addEventListener('fetch', event => {
   event.respondWith(
     (async () => {
       try {
-        console.log('JSON.stringify(event.request.headers.entries())', ...(event.request.headers.entries()));
-        console.log('event.request.headers.get("Origin")', event.request.headers.get("Origin"));
+        console.log(
+          'JSON.stringify(event.request.headers.entries())',
+          ...event.request.headers.entries(),
+        )
+        console.log(
+          'event.request.headers.get("Origin")',
+          event.request.headers.get('Origin'),
+        )
         const routedResponse = await router.handle(event.request)
         console.log('routedResponse', routedResponse)
-        console.log('routedResponse.headers', JSON.stringify(routedResponse.headers))
+        console.log(
+          'routedResponse.headers',
+          JSON.stringify(routedResponse.headers),
+        )
         return routedResponse
       } catch (e) {
         if (e === 'no route') {

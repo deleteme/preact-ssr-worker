@@ -6,6 +6,12 @@ workers_dev = true
 route = ""
 zone_id = ""
 
+kv_namespaces = [
+  { binding = "HTMLBODY", preview_id = "ca47f041992f4da08b5864f7c07ce2b8", id = "aa27d33fe20d415bbc3ed15afb953c1e" }
+]
+
+compatibility_date = "2021-10-27"
+
 [build]
 command = "npm install && rm -rf public/src && cp -r src public && npm run build"
 
