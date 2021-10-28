@@ -231,6 +231,15 @@ router.post('/graphql', async originalRequest => {
     },
   })
 })
+router.post('/add-to-cart', async originalRequest => {
+  const formData = await originalRequest.formData();
+  const body = JSON.stringify(Object.fromEntries(formData.entries()))
+  return new Response(body, {
+    headers: {
+      'content-type': 'text/html',
+    }
+  });
+})
 
 // 404 for everything else
 router.all('*', () => {
