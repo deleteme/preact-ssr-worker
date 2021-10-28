@@ -262,7 +262,9 @@ addEventListener('fetch', event => {
       } catch (e) {
         if (e === 'no route') {
           try {
-            const asset = await getAssetFromKV(event)
+            const asset = await getAssetFromKV(event, {
+              browserTTL: 120
+            })
             console.log('asset', asset)
             return asset
           } catch (e) {
