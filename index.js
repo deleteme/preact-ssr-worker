@@ -108,15 +108,15 @@ const renderAndRespond = async request => {
     measurements.push({ name, duration })
     return value
   }
+  const ttl = 60
   const cachedBody = await measure('kv', async () => {
-    return await HTMLBODY.get(cacheKey)
+    return await HTMLBODY.get(cacheKey, { cacheTtl: ttl })
   })
   console.log(
     `cacheKey: '${cacheKey}',`,
     'cachedBody && cachedBody.length',
     cachedBody && cachedBody.length,
   )
-  const ttl = 60
   const getHeaders = () => {
     return {
       'content-type': 'text/html',
