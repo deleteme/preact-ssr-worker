@@ -264,7 +264,7 @@ addEventListener('fetch', event => {
           try {
             const asset = await getAssetFromKV(event, {
               cacheControl: {
-                browserTTL: 120
+                browserTTL: 60 * 60 * 24
               }
             })
             console.log('asset', asset)
