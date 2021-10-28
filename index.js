@@ -263,7 +263,9 @@ addEventListener('fetch', event => {
         if (e === 'no route') {
           try {
             const asset = await getAssetFromKV(event, {
-              browserTTL: 120
+              cacheControl: {
+                browserTTL: 120
+              }
             })
             console.log('asset', asset)
             return asset
