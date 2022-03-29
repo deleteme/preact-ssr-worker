@@ -157,7 +157,7 @@ const renderAndRespond = async request => {
       await measure('db', async () => {
         return await collection.process({
           headers: {
-            Authorization: `Bearer ${apiAccessToken}`,
+            //Authorization: `Bearer ${apiAccessToken}`,
           },
         })
       })
@@ -199,7 +199,7 @@ router.post('/graphql', async originalRequest => {
     method: 'post',
     headers: {
       'content-type': 'application/json',
-      Authorization: `Bearer ${apiAccessToken}`,
+      //Authorization: `Bearer ${apiAccessToken}`,
     },
     body: JSON.stringify(body),
   })
