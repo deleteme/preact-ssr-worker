@@ -1252,7 +1252,7 @@ router.get('/test-twitter-card', () => {
         filter: brightness(0);
     }
     </style>
-    <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" name="Content-Type" />
     <title>Misfit Cabaret • Stellar Tickets</title>
     <meta property="og:type" content="website" data-rh="true">
     <meta property="twitter:card" content="summary_large_image" data-rh="true">
