@@ -246,6 +246,7 @@ router.get('/test-twitter-card', () => {
   <!DOCTYPE html>
 <html class="hydrated">
 <head>
+    <meta content="text/html; charset=UTF-8" name="Content-Type" />
     <base href="https://www.stellartickets.com">
     <style data-styles="">
     ion-icon {
@@ -1252,7 +1253,6 @@ router.get('/test-twitter-card', () => {
         filter: brightness(0);
     }
     </style>
-    <meta content="text/html; charset=UTF-8" name="Content-Type" />
     <title>Misfit Cabaret • Stellar Tickets</title>
     <meta property="og:type" content="website" data-rh="true">
     <meta property="twitter:card" content="summary_large_image" data-rh="true">
