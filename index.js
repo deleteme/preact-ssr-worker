@@ -243,11 +243,10 @@ router.post('/add-to-cart', async originalRequest => {
 
 router.get('/test-twitter-card--2', () => {
   const body = `
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html class="hydrated">
 <head>
-    <meta charset="utf-8" />
-    <base href="https://www.stellartickets.com">
+    <base href="https://timucua.stellartickets.com">
     <style data-styles="">
     ion-icon {
         visibility:hidden
@@ -266,9 +265,9 @@ router.get('/test-twitter-card--2', () => {
         transition: background-color .25s;
     }
     </style>
-    <link id="organizations_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/organizations-root-50ff3ac6cb60bea69a011b6601ad42a1af1faab7.css" media="all" crossorigin="anonymous">
-    <link id="organizations_dark_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/organizations-root-dark-50ff3ac6cb60bea69a011b6601ad42a1af1faab7.css" media="all" crossorigin="anonymous">
-    <link id="consumer_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/root-50ff3ac6cb60bea69a011b6601ad42a1af1faab7.css" media="all" crossorigin="anonymous">
+    <link id="organizations_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/organizations-root-91e2fa5c9b213b36a5289c465d04b07f02802cc4.css" media="all" crossorigin="anonymous">
+    <link id="organizations_dark_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/organizations-root-dark-91e2fa5c9b213b36a5289c465d04b07f02802cc4.css" media="all" crossorigin="anonymous">
+    <link id="consumer_stylesheet" rel="stylesheet" href="https://assets.stellartickets.com/dist/root-91e2fa5c9b213b36a5289c465d04b07f02802cc4.css" media="all" crossorigin="anonymous">
 
     <style data-emotion="css" data-s=""></style>
     <style data-emotion="css" data-s="">
@@ -1045,6 +1044,11 @@ router.get('/test-twitter-card--2', () => {
     }
     </style>
     <style data-emotion="css" data-s="">
+    .css-1b4c7u6 {
+        letter-spacing: 4px;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
     .css-1c053el {
         -webkit-align-items: center;
         -webkit-box-align: center;
@@ -1072,8 +1076,100 @@ router.get('/test-twitter-card--2', () => {
     }
     </style>
     <style data-emotion="css" data-s="">
-    .css-1b4c7u6 {
-        letter-spacing: 4px;
+    .css-1ecj14j {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-1ecj14j .radio + .radio {
+        margin-left: 2rem;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-1wsqsr1 {
+        -webkit-box-flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-nvcufe {
+        -webkit-box-flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-nvcufe::before {
+        display: block;
+        content: "";
+        margin: 0 2rem;
+        width: 1px;
+        background-color: var(--stellar-border-color);
+        height: 2rem;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-zviajk {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 0.875rem;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-zdnpxn {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-zdnpxn:checked ~ span {
+        color: var(--link-active);
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-zdnpxn:checked ~ svg .circle-internal {
+        display: block;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-a85dzo {
+        margin-right: 0.5rem;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-a85dzo .circle-border {
+        stroke: var(--link-active);
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-a85dzo .circle-internal {
+        display: none;
+        fill: var(--link-active);
     }
     </style>
     <style data-emotion="css" data-s="">
@@ -1123,6 +1219,75 @@ router.get('/test-twitter-card--2', () => {
         background: transparent;
         padding-left: 0;
         padding-right: 0.25rem;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (min-width: 871px) {
+        .css-6jzyzf {
+            --grid-columns-count: 4;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 870px) {
+        .css-6jzyzf {
+            --grid-columns-count: 3;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 600px) {
+        .css-6jzyzf {
+            --grid-columns-count: 2;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 380px) {
+        .css-6jzyzf {
+            --grid-columns-count: 1;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    .css-4mvrle {
+        display: grid;
+        --grid-column-gap: 24px;
+        --min-column-width: calc((100% / var(--grid-columns-count, 2)) - var(--grid-column-gap)
+        );
+        grid-template-columns: repeat( var(--grid-columns-count, 2), minmax(var(--min-column-width), 1fr)
+        );
+        -webkit-column-gap: var(--grid-column-gap);
+        column-gap: var(--grid-column-gap);
+        row-gap: 24px;
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (min-width: 871px) {
+        .css-4mvrle {
+            --grid-columns-count: 4;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 870px) {
+        .css-4mvrle {
+            --grid-columns-count: 3;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 600px) {
+        .css-4mvrle {
+            --grid-columns-count: 2;
+        }
+    }
+    </style>
+    <style data-emotion="css" data-s="">
+    @media screen and (max-width: 380px) {
+        .css-4mvrle {
+            --grid-columns-count: 1;
+        }
     }
     </style>
     <style data-emotion="css" data-s="">
@@ -1253,20 +1418,73 @@ router.get('/test-twitter-card--2', () => {
         filter: brightness(0);
     }
     </style>
-    <title>Misfit Cabaret • Stellar Tickets</title>
-    <meta property="og:type" content="website" data-rh="true">
-    <meta property="twitter:card" content="summary_large_image" data-rh="true">
-    <meta property="og:title" content="Misfit Cabaret" data-rh="true">
-    <meta property="twitter:title" content="Misfit Cabaret" data-rh="true">
-    <meta name="title" content="Misfit Cabaret" data-rh="true">
-    <meta property="og:image" content="https://media.stellarlive.tech/c_fill,q_auto/b4p0eccmvw4pdo1mwipx.webp" data-rh="true">
-    <meta property="twitter:image" content="https://media.stellarlive.tech/c_fill,q_auto/b4p0eccmvw4pdo1mwipx.webp" data-rh="true">
-    <meta property="og:description" content="Misfit Cabaret is a splendiferous variety show centered around magical music with a rotating cast of eccentric performers. From burlesque to drag to circus to magic, you never know what you're going to see (or what you're getting yourself into)! For each new Misfit Cabaret, emcee Kat Robichaud writes two original songs keeping with the theme of the evening and plays them with her Darling Misfit band, as well as a special medley to kick off the evening and welcome in the spirits of San Francisco'" data-rh="true">
-    <meta property="twitter:description" content="Misfit Cabaret is a splendiferous variety show centered around magical music with a rotating cast of eccentric performers. From burlesque to drag to circus to magic, you never know what you're going to see (or what you're getting yourself into)! For each new Misfit Cabaret, emcee Kat Robichaud writes two original songs keeping with the theme of the evening and plays them with her Darling Misfit band, as well as a special medley to kick off the evening and welcome in the spirits of San Francisco'" data-rh="true">
-    <meta name="description" content="Misfit Cabaret is a splendiferous variety show centered around magical music with a rotating cast of eccentric performers. From burlesque to drag to circus to magic, you never know what you're going to see (or what you're getting yourself into)! For each new Misfit Cabaret, emcee Kat Robichaud writes two original songs keeping with the theme of the evening and plays them with her Darling Misfit band, as well as a special medley to kick off the evening and welcome in the spirits of San Francisco'" data-rh="true">
-    <base href="https://www.stellartickets.com">
+    <title>Timucua Arts Foundation • Stellar Tickets</title>
+    <meta property="og:type" content="website" data-react-helmet="true">
+    <meta property="twitter:card" content="summary_large_image" data-react-helmet="true">
+    <style data-org-theme="true" data-react-helmet="true">
+    :root {
+        --scheme-main: #000000;
+        --text: #ffffff;
+        --link: #0488c7;
+        --primary: #0488c7;
+        --stellar-accent-color: #c4b4f8;
+        --scheme-main-rgb: 0, 0, 0;
+        --box-background-color: #1a1a1a;
+        --box-background-color-rgb: 26, 26, 26;
+        --primary-invert: rgb(0, 0, 0);
+        --secondary-invert: rgb(0, 0, 0);
+        --stellar-border: 1px solid rgba(255, 255, 255, 0.1);
+        --link-visited: #0488c7;
+        --link-hover: #036695;
+        --link-focus: #024463;
+        --link-active: #024463;
+        --text-faded: #ccc;
+        --navbar-item-hover-color: #ccc;
+        --input-background-color: #343434;
+        --input-disabled-background-color: #272727;
+        --input-color: #ffffff;
+        --input-placeholder-color: #d9d9d9;
+        --input-focus-border-color: #676767;
+        --primary-button-hover-background-color: #0377ae;
+        --primary-button-focus-border-color: #024463;
+        --background-color-darker: #000;
+        --secondary: #c4b4f8;
+        --stellar-accent-color-invert: rgb(0, 0, 0);
+        --modal-background-background-color: rgba(0, 0, 0, 0.5);
+        --primary-button-active-background-color: #0499e0;
+    }
+
+    .navbar-divider {
+        --stellar-border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .box {
+        --stellar-border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    </style>
+    <meta property="og:title" content="Timucua Arts Foundation" data-react-helmet="true">
+    <meta property="twitter:title" content="Timucua Arts Foundation" data-react-helmet="true">
+    <meta name="title" content="Timucua Arts Foundation" data-react-helmet="true">
+    <meta property="og:image" content="https://media.stellarlive.tech/c_fill,q_auto/agrdach02krub8mm7xsc.webp" data-react-helmet="true">
+    <meta property="twitter:image" content="https://media.stellarlive.tech/c_fill,q_auto/agrdach02krub8mm7xsc.webp" data-react-helmet="true">
+    <meta property="og:description" content="Our mission is to inspire you with engaging experiences of the arts
+
+    Timucua Arts Foundation is a multi-faceted arts and education institution, presenting concerts and festivals, operating the unique and intimate Timucua venue, and delivering education and wellness programming to people of all ages.
+    Timucua’s distinctive integration of the performing and visual arts has carved a niche for high-level, accessibly-priced programming in an intimate venue.
+    Our values are rooted in community service, " data-react-helmet="true">
+    <meta property="twitter:description" content="Our mission is to inspire you with engaging experiences of the arts
+
+    Timucua Arts Foundation is a multi-faceted arts and education institution, presenting concerts and festivals, operating the unique and intimate Timucua venue, and delivering education and wellness programming to people of all ages.
+    Timucua’s distinctive integration of the performing and visual arts has carved a niche for high-level, accessibly-priced programming in an intimate venue.
+    Our values are rooted in community service, " data-react-helmet="true">
+    <meta name="description" content="Our mission is to inspire you with engaging experiences of the arts
+
+    Timucua Arts Foundation is a multi-faceted arts and education institution, presenting concerts and festivals, operating the unique and intimate Timucua venue, and delivering education and wellness programming to people of all ages.
+    Timucua’s distinctive integration of the performing and visual arts has carved a niche for high-level, accessibly-priced programming in an intimate venue.
+    Our values are rooted in community service, " data-react-helmet="true">
+    <base href="https://timucua.stellartickets.com">
 </head>
-<body>
+<body class="is-dark-theme" data-react-helmet="class">
     <noscript>
         <section class="section">
             <div class="container">
@@ -1283,8 +1501,8 @@ router.get('/test-twitter-card--2', () => {
         <nav class="navbar is-transparent css-3fr1qq" role="navigation" aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item navbar-item-org-logo" href="/o/misfit-cabaret-llc--2">
-                        <img srcset="https://media.stellarlive.tech/w_48,h_48,c_scale/hyuyfyl83a5g9wff3jyn.png 1x, https://media.stellarlive.tech/w_96,h_96,c_scale/hyuyfyl83a5g9wff3jyn.png 2x" width="48" height="48" class="org-logo" alt="Misfit Cabaret LLC" style="--org-logo-size:48px;">
+                    <a class="navbar-item navbar-item-org-logo" href="/">
+                        <img srcset="https://media.stellarlive.tech/w_51,h_48,c_scale/ewfrn2ixsg2ogfsv0kcy.png 1x, https://media.stellarlive.tech/w_102,h_96,c_scale/ewfrn2ixsg2ogfsv0kcy.png 2x" width="51" height="48" class="org-logo" alt="Timucua Arts Foundation" style="--org-logo-size:48px;">
                     </a>
                     <div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
                         <span aria-hidden="true"></span>
@@ -1295,35 +1513,26 @@ router.get('/test-twitter-card--2', () => {
                 <div id="navbar" class="navbar-menu">
                     <div class="navbar-start"></div>
                     <div class="navbar-end">
-                        <a class="navbar-item has-text-weight-medium" href="/o/misfit-cabaret-llc--2/redeem">
+                        <a class="navbar-item has-text-weight-medium" href="/redeem">
                             Redeem
                             <span class="active-bar"></span>
                         </a>
-                        <a class="navbar-item search" href="/search">
-                            <ion-icon name="search-outline" aria-label="search outline" role="img" class="md hydrated"></ion-icon>
-                            <span>Search</span>
-                        </a>
-                        <a class="navbar-item" href="/wallet">
+                        <a href="https://www.stellartickets.com/wallet" class="navbar-item">
                             Your Tickets
                             <span class="active-bar"></span>
                         </a>
                         <div class="navbar-item has-dropdown">
                             <div class="navbar-link account-menu-control">Account</div>
                             <div class="navbar-dropdown is-right">
-                                <a class="navbar-item nested-navbar-item-with-icon" href="/log-in">
-                                    <ion-icon name="enter-outline" aria-label="enter outline" role="img" class="md hydrated"></ion-icon>
-                                    <span class="ml-2">Log In</span>
-                                </a>
-                                <hr class="navbar-divider">
-                                <a class="navbar-item nested-navbar-item-with-icon" href="/settings">
+                                <a href="https://www.stellartickets.com/settings" class="navbar-item nested-navbar-item-with-icon">
                                     <ion-icon name="person-circle-outline" aria-label="person circle outline" role="img" class="md hydrated"></ion-icon>
                                     <span class="ml-2">Your Account</span>
                                 </a>
-                                <a class="navbar-item nested-navbar-item-with-icon" href="/purchases">
+                                <a href="https://www.stellartickets.com/purchases" class="navbar-item nested-navbar-item-with-icon">
                                     <ion-icon name="gift-outline" aria-label="gift outline" role="img" class="md hydrated"></ion-icon>
                                     <span class="ml-2">Your Purchases</span>
                                 </a>
-                                <a class="navbar-item nested-navbar-item-with-icon" href="/subscriptions">
+                                <a href="https://www.stellartickets.com/subscriptions" class="navbar-item nested-navbar-item-with-icon">
                                     <ion-icon name="refresh" aria-label="refresh" role="img" class="md hydrated"></ion-icon>
                                     <span class="ml-2">Your Subscriptions</span>
                                 </a>
@@ -1332,7 +1541,7 @@ router.get('/test-twitter-card--2', () => {
                                     <span class="ml-2">Help</span>
                                 </a>
                                 <hr class="navbar-divider">
-                                <a class="navbar-item nested-navbar-item-with-icon" href="/dashboard">
+                                <a href="https://www.stellartickets.com/dashboard" class="navbar-item nested-navbar-item-with-icon">
                                     <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: 2px;">
                                         <title>Dashboard Icon</title>
                                         <defs>
@@ -1346,13 +1555,13 @@ router.get('/test-twitter-card--2', () => {
                                 </a>
                             </div>
                         </div>
-                        <a class="navbar-item navbar-item-with-icon" href="/o/misfit-cabaret-llc--2/cart">
+                        <a class="navbar-item navbar-item-with-icon" href="/cart">
                             <span class="icon is-relative">
                                 <ion-icon name="cart-outline" aria-label="cart outline" role="img" class="md hydrated"></ion-icon>
                             </span>
                             <span class="is-hidden-tablet ml-2">Cart</span>
                         </a>
-                        <a class="navbar-item has-text-weight-medium navbar-item-with-icon" href="/o/misfit-cabaret-llc--2?modal=language">
+                        <a class="navbar-item has-text-weight-medium navbar-item-with-icon" href="/?modal=language">
                             <ion-icon name="globe-outline" aria-label="globe outline" role="img" class="md hydrated"></ion-icon>
                             <span class="is-hidden-tablet ml-2">Language</span>
                         </a>
@@ -1363,11 +1572,26 @@ router.get('/test-twitter-card--2', () => {
         <div class="css-1ce57di">
             <section class="home-hero css-1mpgwh6" data-has-hero-image="true">
                 <div class="inset home-hero-content">
-                    <div class="desktop-hero-content header-alignment-justify">
-                        <h1 class="page-title">Misfit Cabaret</h1>
+                    <div class="desktop-hero-content header-alignment-center">
+                        <h1 class="page-title">Timucua Arts Foundation</h1>
                         <div class="social-row">
                             <div class="social-icons css-su7zci">
-                                <a href="http://www.krmisfitcabaret.com" alt="Website" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                <a href="https://instagram.com/timucuaarts" alt="Instagram account" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                    <span class="icon">
+                                        <ion-icon name="logo-instagram" size="medium" aria-label="logo instagram" role="img" class="md icon-medium hydrated"></ion-icon>
+                                    </span>
+                                </a>
+                                <a href="https://twitter.com/@TimucuaArts" alt="Twitter account" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                    <span class="icon">
+                                        <ion-icon name="logo-twitter" size="medium" aria-label="logo twitter" role="img" class="md icon-medium hydrated"></ion-icon>
+                                    </span>
+                                </a>
+                                <a href="https://www.facebook.com/timucuaartsfoundation" alt="Facebook url" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                    <span class="icon">
+                                        <ion-icon name="logo-facebook" size="medium" aria-label="logo facebook" role="img" class="md icon-medium hydrated"></ion-icon>
+                                    </span>
+                                </a>
+                                <a href="https://www.timucua.com/" alt="Website" class="social-icon" target="_blank" rel="noopener noreferrer">
                                     <span class="icon">
                                         <ion-icon name="globe-outline" size="medium" aria-label="globe outline" role="img" class="md icon-medium hydrated"></ion-icon>
                                     </span>
@@ -1377,21 +1601,131 @@ router.get('/test-twitter-card--2', () => {
                     </div>
                     <div class="gallery css-nx4pnq">
                         <figure class="gallery-image">
-                            <img srcset="https://media.stellarlive.tech/w_1360,h_765,c_fill,q_auto/b4p0eccmvw4pdo1mwipx.webp 1x, https://media.stellarlive.tech/w_2720,h_1530,c_fill,q_auto/b4p0eccmvw4pdo1mwipx.webp 2x" width="1360" height="765" class="css-ady3y5" alt="Misfit Cabaret LLC">
+                            <img srcset="https://media.stellarlive.tech/w_1360,h_765,c_fill,q_auto/agrdach02krub8mm7xsc.webp 1x, https://media.stellarlive.tech/w_2720,h_1530,c_fill,q_auto/agrdach02krub8mm7xsc.webp 2x" width="1360" height="765" class="css-ady3y5" alt="Timucua Arts Foundation">
                         </figure>
                     </div>
                 </div>
             </section>
             <section class="inset inset-section">
+                <h3 class="is-size-5 has-text-weight-bold is-uppercase mb-4 css-1b4c7u6">Event Bundles</h3>
+                <div class="css-1oein7u">
+                    <a class="card css-14xpkpa" href="/bundles/a4822110-59aa-47c4-aed0-375c839c689f">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/oq1nmelg7bmtbwgokvfu.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/oq1nmelg7bmtbwgokvfu.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title mb-0">Video on Demand Sampler</p>
+                            <p class="subtitle mt-2"> $0.00 per bundle</p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/bundles/fbdc6c73-02a3-46f2-b4ff-5bd0cd05b1cb">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/haygcoo6omfbsnunb2fl.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/haygcoo6omfbsnunb2fl.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title mb-0">First International Guitar Festival</p>
+                            <p class="subtitle mt-2"> $100.00 per bundle</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="inset inset-section">
                 <h3 class="is-size-5 has-text-weight-bold is-uppercase mb-4 css-1b4c7u6">Events</h3>
+                <div class="css-1ecj14j">
+                    <div class="buttons my-2 css-1wsqsr1">
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="true">
+                            <input type="radio" name="date" class="css-zdnpxn" value="ALL_DATES" checked="">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            All Dates
+                        </label>
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="false">
+                            <input type="radio" name="date" class="css-zdnpxn" value="NEXT_7_DAYS">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            Next 7 Days
+                        </label>
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="false">
+                            <input type="radio" name="date" class="css-zdnpxn" value="NEXT_30_DAYS">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            Next 30 Days
+                        </label>
+                    </div>
+                    <div class="buttons my-2 css-nvcufe">
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="true">
+                            <input type="radio" name="ticket_types" class="css-zdnpxn" value="ALL" checked="">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            All Events
+                        </label>
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="false">
+                            <input type="radio" name="ticket_types" class="css-zdnpxn" value="LIVE_STREAM">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            Livestream
+                        </label>
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="false">
+                            <input type="radio" name="ticket_types" class="css-zdnpxn" value="VIDEO_ON_DEMAND">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            On Demand
+                        </label>
+                        <label class="radio has-text-weight-bold css-zviajk" data-selected="false">
+                            <input type="radio" name="ticket_types" class="css-zdnpxn" value="IN_PERSON">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="css-a85dzo">
+                                <title>Circle</title>
+                                <g fill="none" fill-rule="evenodd">
+                                    <circle class="circle-border" cx="8" cy="8" r="7" stroke-width="1" fill="transparent"></circle>
+                                    <circle class="circle-internal" cx="8" cy="8" r="5" stroke-width="1"></circle>
+                                </g>
+                            </svg>
+                            In Person
+                        </label>
+                    </div>
+                </div>
                 <div class="is-flex mb-5 css-1c053el">
-                    <h2 class="hero-subtitle has-text-weight-bold">3 Events</h2>
+                    <h2 class="hero-subtitle has-text-weight-bold">26 Events</h2>
                 </div>
                 <div class="css-x3ui0p">
-                    <a class="card css-14xpkpa" href="/o/misfit-cabaret-llc--2/events/misfit-cabaret-presents-circus">
+                    <a class="card css-14xpkpa" href="/events/open-house-ucf-faculty-brass-quintet">
                         <div class="card-image">
                             <figure class="image is-16by9">
-                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/yvpkle59bwquzixhcjoi.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/yvpkle59bwquzixhcjoi.webp 2x" width="720" height="405" loading="lazy">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/nkmqw35uswsbusj4r7jn.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/nkmqw35uswsbusj4r7jn.webp 2x" width="720" height="405" loading="lazy">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -1401,37 +1735,118 @@ router.get('/test-twitter-card--2', () => {
                                         <span class="tag">
                                             <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
                                         </span>
-                                        <span class="tag">Livestream</span>
-                                    </span>
-                                </div>
-                                <div class="control">
-                                    <span class="tags has-addons">
-                                        <span class="tag">
-                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
-                                        </span>
                                         <span class="tag">On Demand</span>
                                     </span>
                                 </div>
                             </div>
-                            <p class="title mb-0">Misfit Cabaret Presents Circus</p>
+                            <p class="title mb-0">Open House: UCF Faculty Brass Quintet</p>
                             <p class="subtitle mt-2">
-                                <span data-id="baf1dc05-00e9-44e1-b426-f1fe21da9f4f">
-                                    <time datetime="2022-08-20T00:00:00Z">Aug 20, 2022</time>
+                                <span data-id="2a12c7bb-879e-454b-9546-9001c3d429d0">
+                                    <time datetime="2021-12-24T13:00:00Z">Dec 24, 2021</time>
                                     <br>
                                     <span>Available thru</span>
-                                    <time datetime="2022-08-24T23:00:00Z">Aug 24, 2022</time>
+                                    <time datetime="2055-12-11T00:00:00Z">Dec 11, 2055</time>
                                 </span>
                             </p>
                         </div>
                     </a>
-                    <a class="card css-14xpkpa" href="/o/misfit-cabaret-llc--2/events/misfit-cabaret-presents-asylum">
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-murieal-anderson-2-17">
                         <div class="card-image">
                             <figure class="image is-16by9">
-                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/kbijnjx2jp5jhunxxlrv.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/kbijnjx2jp5jhunxxlrv.webp 2x" width="720" height="405" loading="lazy">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/zzflg7fg2hfp0jeyritm.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/zzflg7fg2hfp0jeyritm.webp 2x" width="720" height="405" loading="lazy">
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Muriel Anderson</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="a8d1e1a7-b38c-467f-954f-2096af814f0a">
+                                    <time datetime="2022-02-18T00:30:00Z">Feb 18, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-leya">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/k7fi7cnhjah8xwfpzvdv.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/k7fi7cnhjah8xwfpzvdv.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: LEYA</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="23b1c7cb-7f11-443a-8fc0-2610361f26b5">
+                                    <time datetime="2022-03-23T23:30:00Z">Mar 23, 2022</time>
+                                    <br>
+                                    <span>Available thru</span>
+                                    <time datetime="2104-02-01T00:00:00Z">Feb 1, 2104</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-matt-walden-2">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/zde3clyln2ytnpsuhhrc.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/zde3clyln2ytnpsuhhrc.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Matt Walden</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="0dd50ff7-2072-448a-b97b-7a1281ac78bc">
+                                    <time datetime="2022-05-06T23:30:00Z">May 6, 2022</time>
+                                    <br>
+                                    <span>Available thru</span>
+                                    <time datetime="2111-05-16T00:00:00Z">May 16, 2111</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-bobby-callender-performing-the-way">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/k5ert7rhpzk0lztdab4t.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/k5ert7rhpzk0lztdab4t.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
                                 <div class="control">
                                     <span class="tags has-addons">
                                         <span class="tag">
@@ -1449,18 +1864,18 @@ router.get('/test-twitter-card--2', () => {
                                     </span>
                                 </div>
                             </div>
-                            <p class="title mb-0">Misfit Cabaret Presents Asylum</p>
+                            <p class="title mb-0">Live at Timucua: Bobby Callender performing The Way</p>
                             <p class="subtitle mt-2">
-                                <time datetime="2022-09-18T00:00:00Z">Sep 18, 2022</time>
+                                <time datetime="2022-06-03T23:30:00Z">Jun 3, 2022</time>
                                  - 
-                                <time datetime="2022-10-09T03:00:00Z">Oct 9, 2022</time>
+                                <time datetime="2022-06-04T23:30:00Z">Jun 4, 2022</time>
                             </p>
                         </div>
                     </a>
-                    <a class="card css-14xpkpa" href="/o/misfit-cabaret-llc--2/events/misfit-cabaret-presents-night-terrors">
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-the-lubben-brothers">
                         <div class="card-image">
                             <figure class="image is-16by9">
-                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/ysb0rsolv7oeljansayq.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/ysb0rsolv7oeljansayq.webp 2x" width="720" height="405" loading="lazy">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/mlgpfmjkp5fnbmzykp9z.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/mlgpfmjkp5fnbmzykp9z.webp 2x" width="720" height="405" loading="lazy">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -1470,16 +1885,807 @@ router.get('/test-twitter-card--2', () => {
                                         <span class="tag">
                                             <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
                                         </span>
-                                        <span class="tag">Livestream</span>
+                                        <span class="tag">On Demand</span>
                                     </span>
                                 </div>
                             </div>
-                            <p class="title mb-0">Misfit Cabaret Presents Night Terrors</p>
+                            <p class="title mb-0">Live at Timucua: The Lubben Brothers</p>
                             <p class="subtitle mt-2">
-                                <span data-id="8b395027-ab8d-431d-bf58-be470248d2e3">
-                                    <time datetime="2022-10-09T03:00:00Z">Oct 9, 2022</time>
+                                <span data-id="5ac6c6a3-78ca-40c0-b932-367a0f3e9176">
+                                    <time datetime="2022-06-18T23:30:00Z">Jun 18, 2022</time>
+                                    <br>
+                                    <span>Available thru</span>
+                                    <time datetime="2222-06-27T00:00:00Z">Jun 27, 2222</time>
                                 </span>
                             </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-daniel-champagne-8-20">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/h16k5n8mebpl3b108lks.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/h16k5n8mebpl3b108lks.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Daniel Champagne</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="e7c5aa16-67db-4a8a-bb23-46191f3654d0">
+                                    <time datetime="2022-08-20T18:30:00Z">Aug 20, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/authentic-selves-poetry-reading-and-open-mic">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/lbk21fnfoop8un53lnkn.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/lbk21fnfoop8un53lnkn.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Authentic Selves: Poetry Reading and Open Mic</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="ea21121c-136a-4238-ac3b-3372d4c829c9">
+                                    <time datetime="2022-08-21T23:30:00Z">Aug 21, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/lat-don-soledad-8-26-22">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/dq93wyxfbpxvkujbpyqa.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/dq93wyxfbpxvkujbpyqa.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Don Soledad </p>
+                            <p class="subtitle mt-2">
+                                <span data-id="d517a9e6-05e2-47c9-ab21-036754753b28">
+                                    <time datetime="2022-08-26T23:30:00Z">Aug 26, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-james-zito-trio">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/pqscmzarn5zakqiqvech.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/pqscmzarn5zakqiqvech.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: James Zito Trio</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="2411e62d-24f9-41b4-b288-ccf45ea010c4">
+                                    <time datetime="2022-08-27T23:30:00Z">Aug 27, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-catherine-britt">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/ezqrfk0zb0hujekmkz3l.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/ezqrfk0zb0hujekmkz3l.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Catherine Britt</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="5e874aae-9c32-40a7-8b9b-700fb91531c5">
+                                    <time datetime="2022-09-02T23:30:00Z">Sep 2, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-hiroya-tsukamoto">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/yf5kehmno21dhpyrtdgl.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/yf5kehmno21dhpyrtdgl.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Hiroya Tsukamoto</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="d61f0606-fd16-428d-af1a-3c1666afb351">
+                                    <time datetime="2022-09-03T23:30:00Z">Sep 3, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-anita-graef-and-julian-graef">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/wxa3ywdfhgyhza4fje5i.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/wxa3ywdfhgyhza4fje5i.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Anita Graef &amp; Julian Graef</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="0fea1f08-59e3-4287-a71e-e417c0f60d10">
+                                    <time datetime="2022-09-10T23:30:00Z">Sep 10, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/timucua-presents-alterity-chamber-orchestra">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/tyddhjmylpbi6uek3s33.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/tyddhjmylpbi6uek3s33.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Timucua Presents: Alterity Chamber Orchestra</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="e15ea959-33da-4e40-9bab-26cb5234f773">
+                                    <time datetime="2022-09-18T00:00:00Z">Sep 18, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/la-maestra-y-el-delantal-blanco">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/y35fxo6gumijzzbgrcht.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/y35fxo6gumijzzbgrcht.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">La Maestra y El Delantal Blanco</p>
+                            <p class="subtitle mt-2">
+                                <time datetime="2022-09-23T23:30:00Z">Sep 23, 2022</time>
+                                 - 
+                                <time datetime="2022-09-24T23:30:00Z">Sep 24, 2022</time>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-simon-lasky-group">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/z6ihwpnbj159asown2ob.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/z6ihwpnbj159asown2ob.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Simon Lasky Group</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="ab50acbf-343f-4f38-a2a9-b010ffbad1b2">
+                                    <time datetime="2022-09-25T23:30:00Z">Sep 25, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-no-5">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/kzmhpjg0cr9kt6x0knd5.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/kzmhpjg0cr9kt6x0knd5.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: No. 5, an opera about Coco Chanel</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="592ff507-33eb-4380-992c-7fff51702253">
+                                    <time datetime="2022-10-01T23:30:00Z">Oct 1, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-martin-bejerano-trio">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/my3b9p6jhjhkcel5ob8g.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/my3b9p6jhjhkcel5ob8g.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Martin Bejerano Trio</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="ae939b44-fb50-4c79-8a70-381293a2541a">
+                                    <time datetime="2022-10-07T23:30:00Z">Oct 7, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-kemuel-roig">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/rqlthhkubjlnxum2gld2.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/rqlthhkubjlnxum2gld2.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Kemuel Roig </p>
+                            <p class="subtitle mt-2">
+                                <span data-id="aa123107-27cf-4bab-9186-526782481cc2">
+                                    <time datetime="2022-10-13T23:30:00Z">Oct 13, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/norman-westberg-of-swans-presented-by-the-modern-music-movement">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/jbaxdxoru3wijmgp6v7v.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/jbaxdxoru3wijmgp6v7v.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Norman Westberg of Swans, presented by The Modern Music Movement</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="7594ef1d-9e22-4168-ab6a-17bafe0c2e50">
+                                    <time datetime="2022-10-15T23:30:00Z">Oct 15, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/open-house-the-greenjays">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/z5aqw1zvph9nkv0jutfl.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/z5aqw1zvph9nkv0jutfl.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Open House: The Greenjays</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="1c7b1dd6-fbac-42f9-9fa1-7af5495b42e1">
+                                    <time datetime="2022-11-14T00:30:00Z">Nov 14, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-clive-carroll">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/ofc5ppjxygxqbua08yir.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/ofc5ppjxygxqbua08yir.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Clive Carroll</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="a6561b9d-4225-4f52-a070-43ffb9ef05ee">
+                                    <time datetime="2022-11-20T00:30:00Z">Nov 20, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/open-house-john-c-oleary-iii">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/istgd0gtey1kmvbhfn2l.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/istgd0gtey1kmvbhfn2l.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Open House: John C. O'Leary III</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="42522356-5936-4ee4-b1df-263c3c67c819">
+                                    <time datetime="2022-12-12T00:30:00Z">Dec 12, 2022</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-ulysses-quartet">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/icbnjjlyvklkojlyt3hi.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/icbnjjlyvklkojlyt3hi.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Ulysses Quartet</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="3ad837f3-80a7-4d11-8213-22a73ab7f9de">
+                                    <time datetime="2023-01-14T00:30:00Z">Jan 14, 2023</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-the-smoogies">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/i4ser89ajupagzqk4bak.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/i4ser89ajupagzqk4bak.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: The Smoogies</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="5410dfd7-b3d2-42df-9a4c-30e517ecbe27">
+                                    <time datetime="2023-04-28T23:30:00Z">Apr 28, 2023</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    <a class="card css-14xpkpa" href="/events/live-at-timucua-maharajah-flamenco-trio">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img srcset="https://media.stellarlive.tech/w_720,h_405,c_fill,q_auto/sak1pq2rdrrxozzmn5a6.webp 1x, https://media.stellarlive.tech/w_1440,h_810,c_fill,q_auto/sak1pq2rdrrxozzmn5a6.webp 2x" width="720" height="405" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="field is-grouped mb-0 mb-1 css-1wm5blw">
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="people" aria-label="people" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">In-person</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">Livestream</span>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <span class="tags has-addons">
+                                        <span class="tag">
+                                            <ion-icon name="videocam" aria-label="videocam" role="img" class="md hydrated"></ion-icon>
+                                        </span>
+                                        <span class="tag">On Demand</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="title mb-0">Live at Timucua: Maharajah Flamenco Trio</p>
+                            <p class="subtitle mt-2">
+                                <span data-id="8f855f84-8415-44c2-b1a5-c3fc042ca072">
+                                    <time datetime="2023-05-12T23:30:00Z">May 12, 2023</time>
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="inset inset-section">
+                <h3 class="is-size-5 has-text-weight-bold is-uppercase mb-4 css-1b4c7u6">Merchandise</h3>
+                <div class="css-4mvrle">
+                    <a class="card css-14xpkpa" href="/merch/360d9dd1-7c29-4ab8-9795-489441b0b9b6">
+                        <div class="card-image">
+                            <figure class="image is-1by1">
+                                <img srcset="https://media.stellarlive.tech/b_auto,w_356,h_356,c_fill_pad,g_auto/bxcfz2hiva507wykog9j.webp 1x, https://media.stellarlive.tech/b_auto,w_712,h_712,c_fill_pad,g_auto/bxcfz2hiva507wykog9j.webp 2x" width="356" height="356" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title mb-0">2022 Month of Jazz Poster</p>
+                            <p class="subtitle mt-2">$10.00</p>
                         </div>
                     </a>
                 </div>
@@ -1491,7 +2697,21 @@ router.get('/test-twitter-card--2', () => {
                 <div class="about-organization">
                     <div class="about-content">
                         <div class="content">
-                            <p>Misfit Cabaret is a splendiferous variety show centered around magical music with a rotating cast of eccentric performers. From burlesque to drag to circus to magic, you never know what you're going to see (or what you're getting yourself into)! For each new Misfit Cabaret, emcee Kat Robichaud writes two original songs keeping with the theme of the evening and plays them with her Darling Misfit band, as well as a special medley to kick off the evening and welcome in the spirits of San Francisco's saucy past!</p>
+                            <h3>Our mission is to inspire you with engaging experiences of the arts</h3>
+                            <h3></h3>
+                            <p>Timucua Arts Foundation is a multi-faceted arts and education institution, presenting concerts and festivals, operating the unique and intimate Timucua venue, and delivering education and wellness programming to people of all ages.</p>
+                            <p>Timucua’s distinctive integration of the performing and visual arts has carved a niche for high-level, accessibly-priced programming in an intimate venue.</p>
+                            <h3>Our values are rooted in community service, inclusivity, education, excellence, and sustainability</h3>
+                            <h3></h3>
+                            <p>Our core belief that The Arts Belong to Everyone is embodied in an expansive performance schedule unique in Central Florida, encompassing internationally-acclaimed jazz artists, indigenous and folkloric music and dance, contemporary classical music, avant-garde improvisation, film, site-specific theater, and more, all while visual artists work live on stage.</p>
+                            <h3></h3>
+                            <p>We believe:</p>
+                            <p>Art and music belong to everyone.</p>
+                            <p>Art and music are the highest manifestation of our humanity.</p>
+                            <p>Art and music should be enjoyed in the most intimate venue: the living room.</p>
+                            <p>Every community is better when art and music are performed and nurtured within it.</p>
+                            <h3></h3>
+                            <h3>The Timucua venue is located at 2000 S. Summerlin Ave  Orlando, Fl 32806, directly across from the Boone High School athletic fields.</h3>
                         </div>
                     </div>
                     <div class="about-links box">
@@ -1499,18 +2719,33 @@ router.get('/test-twitter-card--2', () => {
                             <div class="about-links-link">
                                 <h6 class="title is-6">Website</h6>
                                 <p>
-                                    <a href="http://www.krmisfitcabaret.com">http://www.krmisfitcabaret.com</a>
+                                    <a href="https://www.timucua.com/">https://www.timucua.com/</a>
                                 </p>
                             </div>
                             <div class="about-links-link">
                                 <h6 class="title is-6">Contact</h6>
                                 <p>
-                                    <a href="mailto:jordanathan21@gmail.com">jordanathan21@gmail.com</a>
+                                    <a href="mailto:chris@timucua.com">chris@timucua.com</a>
                                 </p>
                             </div>
                         </div>
                         <div class="social-icons css-su7zci">
-                            <a href="http://www.krmisfitcabaret.com" alt="Website" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <a href="https://instagram.com/timucuaarts" alt="Instagram account" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                <span class="icon">
+                                    <ion-icon name="logo-instagram" size="medium" aria-label="logo instagram" role="img" class="md icon-medium hydrated"></ion-icon>
+                                </span>
+                            </a>
+                            <a href="https://twitter.com/@TimucuaArts" alt="Twitter account" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                <span class="icon">
+                                    <ion-icon name="logo-twitter" size="medium" aria-label="logo twitter" role="img" class="md icon-medium hydrated"></ion-icon>
+                                </span>
+                            </a>
+                            <a href="https://www.facebook.com/timucuaartsfoundation" alt="Facebook url" class="social-icon" target="_blank" rel="noopener noreferrer">
+                                <span class="icon">
+                                    <ion-icon name="logo-facebook" size="medium" aria-label="logo facebook" role="img" class="md icon-medium hydrated"></ion-icon>
+                                </span>
+                            </a>
+                            <a href="https://www.timucua.com/" alt="Website" class="social-icon" target="_blank" rel="noopener noreferrer">
                                 <span class="icon">
                                     <ion-icon name="globe-outline" size="medium" aria-label="globe outline" role="img" class="md icon-medium hydrated"></ion-icon>
                                 </span>
@@ -1520,8 +2755,8 @@ router.get('/test-twitter-card--2', () => {
                 </div>
             </section>
             <footer class="footer inset css-1gvckja">
-                <a href="/o/misfit-cabaret-llc--2">
-                    <img srcset="https://media.stellarlive.tech/w_60,h_60,c_fill_pad,g_auto/hyuyfyl83a5g9wff3jyn.png 1x, https://media.stellarlive.tech/w_120,h_120,c_fill_pad,g_auto/hyuyfyl83a5g9wff3jyn.png 2x" width="60" height="60" alt="Misfit Cabaret LLC">
+                <a href="/">
+                    <img srcset="https://media.stellarlive.tech/w_60,h_60,c_fill_pad,g_auto/ewfrn2ixsg2ogfsv0kcy.png 1x, https://media.stellarlive.tech/w_120,h_120,c_fill_pad,g_auto/ewfrn2ixsg2ogfsv0kcy.png 2x" width="60" height="60" alt="Timucua Arts Foundation">
                 </a>
                 <a href="https://www.stellartickets.com" class="powered-by-stellar-link">
                     powered by
