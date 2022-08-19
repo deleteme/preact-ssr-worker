@@ -241,7 +241,7 @@ router.post('/add-to-cart', async originalRequest => {
   });
 })
 
-router.get('/test-twitter-card', () => {
+router.get('/test-twitter-card--2', () => {
   const body = `
   <!DOCTYPE html>
 <html class="hydrated">
