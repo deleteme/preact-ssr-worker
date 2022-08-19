@@ -246,7 +246,7 @@ router.get('/test-twitter-card', () => {
   <!DOCTYPE html>
 <html class="hydrated">
 <head>
-    <meta content="text/html; charset=UTF-8" name="Content-Type" />
+    <meta charset="utf-8" />
     <base href="https://www.stellartickets.com">
     <style data-styles="">
     ion-icon {
